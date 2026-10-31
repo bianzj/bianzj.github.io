@@ -22,21 +22,33 @@ def heading(number, zh, en, note=''):
 def timeline(items):
     return '<div class="timeline">' + ''.join(f'<article class="timeline-item"><div class="date">{esc(i["date"])}</div><h3>{bi(i["title"])}</h3><div class="place">{bi(i["place"])}</div></article>' for i in items) + '</div>'
 
-cards = ''.join(f'''<article class="research-card"><a class="research-top" href="{esc(r['url'])}"><h3>{esc(r['name'])}</h3><span class="arrow" aria-hidden="true">↗</span></a><h4>{bi(r['title'])}</h4><p>{bi(r['text'])}</p></article>''' for r in data['research'])
-papers = []
-for p in data['publications']:
+def render_paper(p):
     authors = esc(p['authors']).replace('Bian, Z.', '<strong>Bian, Z.</strong>')
     title = bi({'zh': p['title_zh'], 'en': p['title']}) if p.get('title_zh') else esc(p['title'])
     journal = bi({'zh': p['journal_zh'], 'en': p['journal']}) if p.get('journal_zh') else esc(p['journal'])
     if p.get('authors_zh'):
         authors_zh = esc(p['authors_zh']).replace('卞尊健', '<strong>卞尊健</strong>')
         authors = f'<span class="zh">{authors_zh}</span><span class="en" lang="en">{authors}</span>'
-    papers.append(f'''<article class="pub" data-category="{esc(p['category'])}"><div class="pub-year">{esc(p['year'])}</div><div><h3><a href="https://doi.org/{esc(p['doi'])}">{title}</a></h3><div class="pub-authors">{authors}</div><div class="pub-journal"><em>{journal}</em> · {esc(p['details'])}</div></div><a class="pub-link" href="https://doi.org/{esc(p['doi'])}" aria-label="DOI: {esc(p['title'])}">↗</a></article>''')
+    return f'''<article class="pub" data-category="{esc(p['category'])}"><div class="pub-year">{esc(p['year'])}</div><div><h4><a href="https://doi.org/{esc(p['doi'])}">{title}</a></h4><div class="pub-authors">{authors}</div><div class="pub-journal"><em>{journal}</em> · {esc(p['details'])}</div></div><a class="pub-link" href="https://doi.org/{esc(p['doi'])}" aria-label="DOI: {esc(p['title'])}">↗</a></article>'''
+
+research_groups = []
+for research in data['research']:
+    category = research['category']
+    category_papers = [p for p in data['publications'] if p['category'] == category]
+    findings = ''.join(f'<li>{bi(finding)}</li>' for finding in research['contributions'])
+    for model in ['TIRT', 'STREAM']:
+        findings = findings.replace(model, f'<em>{model}</em>')
+    research_groups.append(f'''<section class="research-group" id="research-{esc(category)}" aria-labelledby="title-{esc(category)}">
+<div class="research-group-heading"><h3 id="title-{esc(category)}">{bi(research['title'])}</h3><a class="method-name" href="{esc(research['url'])}">{esc(research['name'])}</a></div>
+<div class="contribution-box"><ol class="contributions">{findings}</ol></div>
+<div class="group-paper-heading"><span>{text('代表性论文','Selected publications')}</span><span class="section-note">{text(f'{len(category_papers)} 篇 · 按发表年份排列',f'{len(category_papers)} papers · Ordered by publication year')}</span></div>
+<div class="group-papers">{''.join(render_paper(p) for p in category_papers)}</div>
+</section>''')
 projects = ''.join(f'<article class="project"><div class="date">{esc(p["date"])}</div><h3>{bi(p["title"])}</h3><div class="place">{bi(p["funder"])}</div></article>' for p in data['projects'])
 honors = ''.join(f'<div class="honor"><time>{esc(p["year"])}</time><span>{bi(p["title"])}</span></div>' for p in data['honors'])
 committees = ''.join(f'<article class="project service-item"><h3>{bi(item["title"])}</h3><div class="place">{bi(item["organization"])}</div></article>' for item in data['academic_service']['committees'])
 conferences = ''.join(f'<article class="project service-item"><h3>{bi(item["title"])}</h3><div class="place">{bi(item["detail"])}</div></article>' for item in data['academic_service']['conferences'])
-filters = ''.join(f'<button class="filter" type="button" data-filter="{key}" aria-pressed="{str(key=="all").lower()}">{text(zh,en)}</button>' for key,zh,en in [('all','全部','All'),('modeling','辐射建模','Modeling'),('retrieval','温度反演','Retrieval'),('twins','数字孪生','Digital twins')])
+research_nav = ''.join(f'<a href="#research-{esc(r["category"])}">{bi(r["title"])}</a>' for r in data['research'])
 
 page = f'''<!doctype html>
 <html lang="zh-CN">
@@ -60,9 +72,9 @@ page = f'''<!doctype html>
 <header class="header"><div class="wrap nav">
 <a class="brand" href="#main">Zunjian Bian<span>ACADEMIC PROFILE</span></a>
 <nav class="nav-links" aria-label="Main navigation">
-<a class="desktop-link" href="#research">{text('研究','Research')}</a>
-<a href="#publications">{text('论文','Publications')}</a>
+<a href="#research">{text('研究与论文','Research')}</a>
 <a href="#cv">{text('简历','CV')}</a>
+<a class="desktop-link" href="#service">{text('学术服务','Service')}</a>
 <a class="desktop-link" href="#software">{text('软件','Software')}</a>
 <button type="button" class="language" id="language-toggle" aria-label="Switch to English">EN</button>
 </nav></div></header>
@@ -86,28 +98,25 @@ page = f'''<!doctype html>
 </section>
 <div class="topic-line" aria-label="Research interests"><span>{text('辐射建模','RADIATIVE TRANSFER MODELING')}</span><span>{text('温度反演','TEMPERATURE RETRIEVAL')}</span><span>{text('数字孪生','DIGITAL TWINS')}</span></div>
 <section class="section" id="research">
-{heading('01','研究方向与方法','Research & methods','<span class="section-note">TIRT / LS4T / STREAM</span>')}
-<div class="research-grid">{cards}</div>
-</section>
-<section class="section" id="publications">
-{heading('02','代表论文','Selected publications',f'<span class="section-note">{text("按发表年份排列","Ordered by publication year")}</span>')}
-<div class="filter-bar" role="group" aria-label="Publication categories">{filters}</div>
-<div id="publication-list" aria-live="polite">{''.join(papers)}</div>
+<span id="publications"></span>
+{heading('01','研究方向与代表性论文','Research & selected publications')}
+<nav class="research-nav" aria-label="Research areas">{research_nav}</nav>
+{''.join(research_groups)}
 </section>
 <section class="section" id="cv">
-{heading('03','教育与工作经历','Experience & education')}
+{heading('02','教育与工作经历','Experience & education')}
 <div class="cv-grid"><div><h3 class="subheading">{text('工作经历','Appointments')}</h3>{timeline(data['experience'])}</div><div><h3 class="subheading">{text('教育经历','Education')}</h3>{timeline(data['education'])}</div></div>
 </section>
 <section class="section" id="projects">
-{heading('04','科研项目与荣誉','Projects & recognition')}
+{heading('03','科研项目与荣誉','Projects & recognition')}
 <div class="lower-grid"><div><h3 class="subheading">{text('代表项目','Selected projects')}</h3>{projects}</div><div><h3 class="subheading">{text('人才计划与荣誉','Programs & honors')}</h3>{honors}</div></div>
 </section>
 <section class="section" id="service">
-{heading('05','学术服务','Academic service')}
+{heading('04','学术服务','Academic service')}
 <div class="cv-grid"><div><h3 class="subheading">{text('学术任职','Committee memberships')}</h3>{committees}</div><div><h3 class="subheading">{text('会议组织','Conference organization')}</h3>{conferences}</div></div>
 </section>
 <section class="section" id="software">
-{heading('06','科研软件','Research software')}
+{heading('05','科研软件','Research software')}
 <div class="software"><div><span class="eyebrow">MODELS INTO PRACTICE</span><h3>STREAM Studio</h3><p>{text('面向遥感数字孪生与模拟实验的软件工具。访问项目仓库，了解功能、安装方式和使用文档；TIRT 与 LS4T 也可通过各自仓库获取。','Software for remote sensing digital twins and numerical experiments. Visit the repository for features, installation instructions, and documentation. TIRT and LS4T are also available in their respective repositories.')}</p></div><a class="button" href="https://github.com/bianzj/streamstudio">{text('访问软件仓库','Explore the repository')}<span aria-hidden="true">↗</span></a></div>
 </section>
 <section class="section" id="contact"><div class="contact-grid"><div><span class="eyebrow">CONTACT</span><h2>{text('交流与合作','Let’s connect')}</h2><p>{text('欢迎就热红外遥感、辐射传输、温度产品与遥感数字孪生交流。','For discussions on thermal infrared remote sensing, radiative transfer, temperature products, and remote sensing digital twins.')}</p></div><a class="email" href="mailto:{esc(data['email'])}">{esc(data['email'])}<span aria-hidden="true"> ↗</span></a></div></section>

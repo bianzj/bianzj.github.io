@@ -12,11 +12,5 @@
   try { saved = localStorage.getItem('cv-language'); } catch (_) {}
   if (saved) setLanguage(saved);
   toggle.addEventListener('click', () => setLanguage(root.lang === 'en' ? 'zh-CN' : 'en'));
-  document.querySelectorAll('.filter').forEach(button => {
-    button.addEventListener('click', () => {
-      document.querySelectorAll('.filter').forEach(other => other.setAttribute('aria-pressed', String(other === button)));
-      document.querySelectorAll('.pub').forEach(paper => { paper.hidden = button.dataset.filter !== 'all' && paper.dataset.category !== button.dataset.filter; });
-    });
-  });
   document.querySelector('#print-cv').addEventListener('click', () => window.print());
 })();

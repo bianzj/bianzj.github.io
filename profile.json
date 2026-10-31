@@ -31,11 +31,18 @@
         "zh": "辐射建模",
         "en": "Radiative transfer modeling"
       },
-      "text": {
-        "zh": "研究植被、城市与复杂地表的热辐射传输过程，描述结构、观测几何及热状态对遥感信号的影响。",
-        "en": "Model thermal radiative transfer over vegetation, cities, and heterogeneous surfaces, accounting for structure, viewing geometry, and thermal state."
-      },
-      "url": "https://github.com/bianzj/tirt"
+      "url": "https://github.com/bianzj/tirt",
+      "category": "modeling",
+      "contributions": [
+        {
+          "zh": "构建了植被场景热红外辐射传输模型 TIRT，厘清了“植被冠层→聚集效应/分层特征→热辐射信号”的关联关系。",
+          "en": "Developed TIRT, a thermal infrared radiative transfer model for vegetation scenes, and clarified the links among vegetation canopies, clumping effects and stratification, and thermal radiation signals."
+        },
+        {
+          "zh": "揭示了植被结构与地形特征对热辐射的复合影响机制，将 TIRT 模型拓展到植被-地形复合场景。",
+          "en": "Revealed the combined effects of vegetation structure and terrain on thermal radiation, and extended TIRT to coupled vegetation–terrain scenes."
+        }
+      ]
     },
     {
       "code": "02",
@@ -44,11 +51,18 @@
         "zh": "温度反演",
         "en": "Temperature retrieval"
       },
-      "text": {
-        "zh": "利用多角度与多像元观测信息，开展植被和土壤组分温度反演、温度产品研制及验证。",
-        "en": "Use multiangle and multipixel observations to retrieve vegetation and soil temperatures, and develop and evaluate temperature products."
-      },
-      "url": "https://github.com/bianzj/ls4t"
+      "url": "https://github.com/bianzj/ls4t",
+      "category": "retrieval",
+      "contributions": [
+        {
+          "zh": "权衡反演信息量与反演稳定性，提出了三组分温度反演方法，考虑热点效应降低了反演噪声。",
+          "en": "Balanced retrieval information and stability to develop a three-component temperature retrieval method, incorporating hotspot effects to reduce retrieval noise."
+        },
+        {
+          "zh": "基于贝叶斯优化理论，提出了热辐射角度效应、空间相关与温差约束结合的组分温度反演方法，研制首套全球尺度长时序组分温度产品。",
+          "en": "Developed a component temperature retrieval method based on Bayesian optimization that combines thermal radiation angular effects, spatial correlation, and temperature difference constraints, and produced the first global component temperature product with a long time series."
+        }
+      ]
     },
     {
       "code": "03",
@@ -57,11 +71,18 @@
         "zh": "数字孪生",
         "en": "Digital twins"
       },
-      "text": {
-        "zh": "以遥感场景与热红外图像仿真为基础，开展遥感数字孪生研究，连接地表过程、传感器观测与模拟实验。",
-        "en": "Develop remote sensing digital twins through scene and thermal infrared image simulation, connecting land surface processes, sensor observations, and numerical experiments."
-      },
-      "url": "https://github.com/bianzj/streamstudio"
+      "url": "https://github.com/bianzj/streamstudio",
+      "category": "twins",
+      "contributions": [
+        {
+          "zh": "以组分温度作为桥梁，耦合辐射传输模型与能量平衡过程，创建了热红外遥感动态模拟系统 STREAM，实现了热辐射由瞬时模拟至动态模拟的拓展。",
+          "en": "Used component temperatures to link radiative transfer models with energy balance processes, creating STREAM, a dynamic thermal infrared remote sensing simulation system that extends thermal radiation simulation from instantaneous states to time-varying processes."
+        },
+        {
+          "zh": "研发全要素耦合的在轨成像模拟系统，论证并提出了传感器波段和角度优选方案。",
+          "en": "Developed a fully coupled system for simulating satellite imaging in orbit, and evaluated and proposed preferred sensor spectral bands and viewing angles."
+        }
+      ]
     }
   ],
   "experience": [
