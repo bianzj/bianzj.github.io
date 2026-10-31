@@ -28,7 +28,7 @@ gh api --method POST repos/bianzj/bianzj.github.io/pages -f 'source[branch]=main
 
 ## 内容来源
 
-- 用户在本次对话中确认的研究定位：TIRT 为辐射传输机理模型；LS4T 为温度产品算法；STREAM 为图像仿真模拟方法；STREAM Studio 为软件入口，计划加入 TIRT 和 LS4T。
+- 用户在本次对话中确认的研究定位：TIRT 为辐射传输机理模型；LS4T 为温度产品算法；STREAM 对应遥感数字孪生研究与应用；STREAM Studio 为软件入口，计划加入 TIRT 和 LS4T。
 - 实验室个人主页：https://www.slrss.cn/kydw/fyjyfjs/202502/t20250218_402577.html
 - 2026 年院所会议通知中的单位和职称：https://www.aircas.cas.cn/tzgg/202608/t20260805_8259259.html
 - 本地中英文简历：教育经历及学术背景。仅抽取公开学术信息，未上传原始简历。

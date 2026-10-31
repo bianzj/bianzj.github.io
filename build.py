@@ -36,11 +36,11 @@ page = f'''<!doctype html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="卞尊健 Zunjian Bian，中国科学院空天信息创新研究院副研究员。研究方向：热红外遥感、辐射传输、组分温度与图像仿真。TIRT · LS4T · STREAM Studio.">
+<meta name="description" content="卞尊健 Zunjian Bian，中国科学院空天信息创新研究院副研究员。研究方向：热红外遥感、辐射传输、组分温度与遥感数字孪生。TIRT · LS4T · STREAM Studio.">
 <meta name="theme-color" content="#285e4e">
 <meta property="og:type" content="profile">
 <meta property="og:title" content="卞尊健 Zunjian Bian | 热红外遥感">
-<meta property="og:description" content="Thermal infrared remote sensing · Radiative transfer · Component temperatures · Image simulation">
+<meta property="og:description" content="Thermal infrared remote sensing · Radiative transfer · Component temperatures · Remote sensing digital twins">
 <meta property="og:url" content="https://bianzj.github.io/">
 <link rel="canonical" href="https://bianzj.github.io/">
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
@@ -77,7 +77,7 @@ page = f'''<!doctype html>
 </div>
 <figure class="portrait"><div class="portrait-frame"><img src="assets/portrait.jpg" alt="卞尊健 Zunjian Bian" width="420" height="540" fetchpriority="high"></div><figcaption><span>BEIJING, CHINA</span><span>中国科学院 · CAS</span></figcaption></figure>
 </section>
-<div class="topic-line" aria-label="Research interests"><span>{text('热红外定量遥感','THERMAL INFRARED')}</span><span>{text('辐射传输机理','RADIATIVE TRANSFER')}</span><span>{text('地表组分温度','COMPONENT TEMPERATURES')}</span><span>{text('遥感图像仿真','IMAGE SIMULATION')}</span></div>
+<div class="topic-line" aria-label="Research interests"><span>{text('热红外定量遥感','THERMAL INFRARED')}</span><span>{text('辐射传输机理','RADIATIVE TRANSFER')}</span><span>{text('地表组分温度','COMPONENT TEMPERATURES')}</span><span>{text('遥感数字孪生','REMOTE SENSING DIGITAL TWINS')}</span></div>
 <section class="section" id="research">
 {heading('01','研究方向与方法','Research & methods','<span class="section-note">TIRT / LS4T / STREAM</span>')}
 <div class="research-grid">{cards}</div>
@@ -97,9 +97,9 @@ page = f'''<!doctype html>
 </section>
 <section class="section" id="software">
 {heading('05','科研软件','Research software')}
-<div class="software"><div><span class="eyebrow">MODELS INTO PRACTICE</span><h3>STREAM Studio</h3><p>{text('面向遥感图像仿真与模拟实验的软件工具。访问项目仓库，了解功能、安装方式和使用文档；TIRT 与 LS4T 也可通过各自仓库获取。','Software for remote sensing image simulation and numerical experiments. Visit the repository for features, installation instructions, and documentation. TIRT and LS4T are also available in their respective repositories.')}</p></div><a class="button" href="https://github.com/bianzj/streamstudio">{text('访问软件仓库','Explore the repository')}<span aria-hidden="true">↗</span></a></div>
+<div class="software"><div><span class="eyebrow">MODELS INTO PRACTICE</span><h3>STREAM Studio</h3><p>{text('面向遥感数字孪生与模拟实验的软件工具。访问项目仓库，了解功能、安装方式和使用文档；TIRT 与 LS4T 也可通过各自仓库获取。','Software for remote sensing digital twins and numerical experiments. Visit the repository for features, installation instructions, and documentation. TIRT and LS4T are also available in their respective repositories.')}</p></div><a class="button" href="https://github.com/bianzj/streamstudio">{text('访问软件仓库','Explore the repository')}<span aria-hidden="true">↗</span></a></div>
 </section>
-<section class="section" id="contact"><div class="contact-grid"><div><span class="eyebrow">CONTACT</span><h2>{text('交流与合作','Let’s connect')}</h2><p>{text('欢迎就热红外遥感、辐射传输、温度产品与图像仿真交流。','For discussions on thermal infrared remote sensing, radiative transfer, temperature products, and image simulation.')}</p></div><a class="email" href="mailto:{esc(data['email'])}">{esc(data['email'])}<span aria-hidden="true"> ↗</span></a></div></section>
+<section class="section" id="contact"><div class="contact-grid"><div><span class="eyebrow">CONTACT</span><h2>{text('交流与合作','Let’s connect')}</h2><p>{text('欢迎就热红外遥感、辐射传输、温度产品与遥感数字孪生交流。','For discussions on thermal infrared remote sensing, radiative transfer, temperature products, and remote sensing digital twins.')}</p></div><a class="email" href="mailto:{esc(data['email'])}">{esc(data['email'])}<span aria-hidden="true"> ↗</span></a></div></section>
 </main>
 <footer class="footer wrap"><span>© 2026 Zunjian Bian · {text('更新于','Updated')} {esc(data['updated'])}</span><span><a href="{esc(data['official_profile'])}">{text('实验室个人主页','Institutional profile')}</a> · <a href="{esc(data['github'])}">GitHub</a></span></footer>
 </body></html>

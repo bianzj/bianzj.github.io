@@ -20,8 +20,8 @@
   "official_profile": "https://www.slrss.cn/kydw/fyjyfjs/202502/t20250218_402577.html",
   "updated": "2026-10-31",
   "intro": {
-    "zh": "我从事热红外定量遥感研究，关注地表结构、热辐射传输与组分温度之间的联系。研究工作涵盖辐射传输机理建模、温度产品算法和遥感图像仿真，并探索温度信息在生态系统与地表环境研究中的应用。",
-    "en": "I study thermal infrared remote sensing, with a focus on the relationships between surface structure, radiative transfer, and component temperatures. My work spans physical modeling, temperature retrieval algorithms, and remote sensing image simulation, with applications to ecosystems and the land surface environment."
+    "zh": "我从事热红外定量遥感研究，关注地表结构、热辐射传输与组分温度之间的联系。研究工作涵盖辐射传输机理建模、温度产品算法和遥感数字孪生，并探索温度信息在生态系统与地表环境研究中的应用。",
+    "en": "I study thermal infrared remote sensing, with a focus on the relationships between surface structure, radiative transfer, and component temperatures. My work spans physical modeling, temperature retrieval algorithms, and remote sensing digital twins, with applications to ecosystems and the land surface environment."
   },
   "research": [
     {
@@ -54,12 +54,12 @@
       "code": "03",
       "name": "STREAM",
       "title": {
-        "zh": "图像仿真模拟方法",
-        "en": "Remote sensing image simulation"
+        "zh": "遥感数字孪生",
+        "en": "Remote sensing digital twins"
       },
       "text": {
-        "zh": "开展遥感场景与热红外图像仿真，连接地表过程、传感器观测与模拟实验。STREAM Studio 提供软件使用入口。",
-        "en": "Simulate remote sensing scenes and thermal infrared images to connect land surface processes, sensor observations, and numerical experiments. STREAM Studio provides the software interface."
+        "zh": "以遥感场景与热红外图像仿真为基础，开展遥感数字孪生研究，连接地表过程、传感器观测与模拟实验。STREAM Studio 提供软件使用入口。",
+        "en": "Develop remote sensing digital twins through scene and thermal infrared image simulation, connecting land surface processes, sensor observations, and numerical experiments. STREAM Studio provides the software interface."
       },
       "url": "https://github.com/bianzj/streamstudio"
     }
