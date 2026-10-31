@@ -31,18 +31,61 @@ def render_paper(p):
         authors = f'<span class="zh">{authors_zh}</span><span class="en" lang="en">{authors}</span>'
     return f'''<article class="pub" data-category="{esc(p['category'])}"><div class="pub-year">{esc(p['year'])}</div><div><h4><a href="https://doi.org/{esc(p['doi'])}">{title}</a></h4><div class="pub-authors">{authors}</div><div class="pub-journal"><em>{journal}</em> · {esc(p['details'])}</div></div><a class="pub-link" href="https://doi.org/{esc(p['doi'])}" aria-label="DOI: {esc(p['title'])}">↗</a></article>'''
 
+def model_emphasis(value):
+    result = bi(value)
+    for model in ['TIRT', 'STREAM']:
+        result = result.replace(model, f'<em>{model}</em>')
+    return result
+
+def modeling_figure():
+    labels = {
+        'figure_title': ('复杂结构与热辐射“时空角”特征关系示意', 'Complex surface structure and thermal radiation variability'),
+        'vegetation': ('植被场景', 'Vegetation'),
+        'terrain': ('植被 + 地形', 'Vegetation + terrain'),
+        'urban': ('植被 + 城市', 'Vegetation + urban surfaces'),
+        'clumping': ('聚集效应 · 分层特征', 'Clumping · Vertical stratification'),
+        'terrain_features': ('地形起伏 · 植被分布', 'Terrain relief · Vegetation distribution'),
+        'urban_features': ('建筑形态 · 植被配置', 'Building form · Vegetation arrangement'),
+        'structure_input': ('复杂结构', 'Complex structure'),
+        'radiative_transfer': ('辐射传输', 'Radiative transfer'),
+        'radiation_response': ('热辐射响应', 'Thermal radiation response'),
+        'time': ('时间', 'Time'), 'time_detail': ('时间变化', 'Temporal variation'),
+        'space': ('空间', 'Space'), 'space_detail': ('空间异质性', 'Spatial heterogeneity'),
+        'angle': ('角度', 'Angle'), 'angle_detail': ('方向差异', 'Directional variation'),
+        'conceptual_note': ('结构与响应关系示意；图中曲线和色块不表示定量模拟结果。', 'Conceptual relationships; curves and color patches do not represent quantitative simulation results.'),
+    }
+    result = (ROOT / 'templates/modeling-figure.html').read_text()
+    for key, (zh, en) in labels.items():
+        result = result.replace('{{' + key + '}}', text(zh, en))
+    alternatives = {
+        'figure_alt': 'Conceptual diagram of complex surface structures, TIRT, and temporal, spatial and angular thermal radiation variations',
+        'vegetation_alt': 'Clustered tree crowns with distinct vertical layers',
+        'terrain_alt': 'Vegetation distributed across sloping terrain',
+        'urban_alt': 'Buildings of different heights interspersed with vegetation',
+    }
+    for key, value in alternatives.items():
+        result = result.replace('{{' + key + '}}', esc(value))
+    return result
+
 research_groups = []
 for research in data['research']:
     category = research['category']
     category_papers = [p for p in data['publications'] if p['category'] == category]
-    findings = ''.join(f'<li>{bi(finding)}</li>' for finding in research['contributions'])
-    for model in ['TIRT', 'STREAM']:
-        findings = findings.replace(model, f'<em>{model}</em>')
+    question = f'<p class="research-question"><strong>{bi(research["question"])}</strong></p>' if research.get('question') else ''
+    if research.get('summary'):
+        overview = f'<p class="research-summary">{model_emphasis(research["summary"])}</p>'
+    else:
+        findings = ''.join(f'<li>{model_emphasis(finding)}</li>' for finding in research['contributions'])
+        overview = f'<div class="contribution-box"><ol class="contributions">{findings}</ol></div>'
+    figure = modeling_figure() if research.get('figure') == 'modeling' else ''
     research_groups.append(f'''<section class="research-group" id="research-{esc(category)}" aria-labelledby="title-{esc(category)}">
 <div class="research-group-heading"><h3 id="title-{esc(category)}">{bi(research['title'])}</h3><a class="method-name" href="{esc(research['url'])}">{esc(research['name'])}</a></div>
-<div class="contribution-box"><ol class="contributions">{findings}</ol></div>
-<div class="group-paper-heading"><span>{text('代表性论文','Selected publications')}</span><span class="section-note">{text(f'{len(category_papers)} 篇 · 按发表年份排列',f'{len(category_papers)} papers · Ordered by publication year')}</span></div>
+{question}
+<div class="research-overview">{overview}</div>
+{figure}
+<details class="paper-details"><summary class="group-paper-heading"><span>{text('代表性论文','Selected publications')}</span><span class="paper-fold-meta"><span class="section-note">{text(f'{len(category_papers)} 篇',f'{len(category_papers)} papers')}</span><span class="fold-label fold-closed">{text('展开','Show')}</span><span class="fold-label fold-open">{text('收起','Hide')}</span><span class="fold-icon" aria-hidden="true"></span></span></summary>
 <div class="group-papers">{''.join(render_paper(p) for p in category_papers)}</div>
+</details>
 </section>''')
 projects = ''.join(f'<article class="project"><div class="date">{esc(p["date"])}</div><h3>{bi(p["title"])}</h3><div class="place">{bi(p["funder"])}</div></article>' for p in data['projects'])
 honors = ''.join(f'<div class="honor"><time>{esc(p["year"])}</time><span>{bi(p["title"])}</span></div>' for p in data['honors'])

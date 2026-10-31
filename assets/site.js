@@ -12,5 +12,14 @@
   try { saved = localStorage.getItem('cv-language'); } catch (_) {}
   if (saved) setLanguage(saved);
   toggle.addEventListener('click', () => setLanguage(root.lang === 'en' ? 'zh-CN' : 'en'));
+  let detailsBeforePrint = [];
+  window.addEventListener('beforeprint', () => {
+    detailsBeforePrint = Array.from(document.querySelectorAll('.paper-details'), element => ({element, open:element.open}));
+    detailsBeforePrint.forEach(({element}) => { element.open = true; });
+  });
+  window.addEventListener('afterprint', () => {
+    detailsBeforePrint.forEach(({element, open}) => { element.open = open; });
+    detailsBeforePrint = [];
+  });
   document.querySelector('#print-cv').addEventListener('click', () => window.print());
 })();

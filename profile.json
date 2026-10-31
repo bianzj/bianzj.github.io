@@ -33,16 +33,15 @@
       },
       "url": "https://github.com/bianzj/tirt",
       "category": "modeling",
-      "contributions": [
-        {
-          "zh": "构建了植被场景热红外辐射传输模型 TIRT，厘清了“植被冠层→聚集效应/分层特征→热辐射信号”的关联关系。",
-          "en": "Developed TIRT, a thermal infrared radiative transfer model for vegetation scenes, and clarified the links among vegetation canopies, clumping effects and stratification, and thermal radiation signals."
-        },
-        {
-          "zh": "揭示了植被结构与地形特征对热辐射的复合影响机制，将 TIRT 模型拓展到植被-地形复合场景。",
-          "en": "Revealed the combined effects of vegetation structure and terrain on thermal radiation, and extended TIRT to coupled vegetation–terrain scenes."
-        }
-      ]
+      "question": {
+        "zh": "复杂结构特征对热辐射“时空角”变化特征影响机制不清：",
+        "en": "The mechanisms by which complex surface structures affect the temporal, spatial, and angular variability of thermal radiation remain unclear:"
+      },
+      "summary": {
+        "zh": "构建了植被场景热红外辐射传输模型 TIRT，厘清了“植被冠层→聚集效应/分层特征→热辐射信号”的关联关系；揭示了植被结构与地形特征对热辐射的复合影响机制，将 TIRT 模型拓展到植被+地形与植被+城市复合场景。",
+        "en": "Developed TIRT, a thermal infrared radiative transfer model for vegetation scenes, and clarified the links among vegetation canopies, clumping effects and stratification, and thermal radiation signals. Revealed the combined effects of vegetation structure and terrain on thermal radiation, and extended TIRT to coupled vegetation–terrain and vegetation–urban scenes."
+      },
+      "figure": "modeling"
     },
     {
       "code": "02",
@@ -62,7 +61,11 @@
           "zh": "基于贝叶斯优化理论，提出了热辐射角度效应、空间相关与温差约束结合的组分温度反演方法，研制首套全球尺度长时序组分温度产品。",
           "en": "Developed a component temperature retrieval method based on Bayesian optimization that combines thermal radiation angular effects, spatial correlation, and temperature difference constraints, and produced the first global component temperature product with a long time series."
         }
-      ]
+      ],
+      "question": {
+        "zh": "像元内地物真实物理温度反演方法不足",
+        "en": "Methods for retrieving the true physical temperatures of surface components within a pixel remain insufficient."
+      }
     },
     {
       "code": "03",
@@ -82,7 +85,11 @@
           "zh": "研发全要素耦合的在轨成像模拟系统，论证并提出了传感器波段和角度优选方案。",
           "en": "Developed a fully coupled system for simulating satellite imaging in orbit, and evaluated and proposed preferred sensor spectral bands and viewing angles."
         }
-      ]
+      ],
+      "question": {
+        "zh": "复杂地表热辐射“时空角”多维耦合规律与卫星论证",
+        "en": "Coupled temporal, spatial, and angular patterns of thermal radiation over complex surfaces and satellite mission assessment"
+      }
     }
   ],
   "experience": [
