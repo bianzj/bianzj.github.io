@@ -36,19 +36,17 @@
     gallery.dataset.enhanced = 'true';
     select(tabs[0]);
   });
-  let detailsBeforePrint = null;
+  let printExpanded = false;
   let panelsBeforePrint = [];
   window.addEventListener('beforeprint', () => {
-    if (detailsBeforePrint !== null) return;
-    detailsBeforePrint = Array.from(document.querySelectorAll('.paper-details'), element => ({element, open:element.open}));
-    detailsBeforePrint.forEach(({element}) => { element.open = true; });
+    if (printExpanded) return;
+    printExpanded = true;
     panelsBeforePrint = Array.from(document.querySelectorAll('.result-panel'), element => ({element, hidden:element.hidden}));
     panelsBeforePrint.forEach(({element}) => { element.hidden = false; });
   });
   window.addEventListener('afterprint', () => {
-    (detailsBeforePrint || []).forEach(({element, open}) => { element.open = open; });
     panelsBeforePrint.forEach(({element, hidden}) => { element.hidden = hidden; });
-    detailsBeforePrint = null;
+    printExpanded = false;
     panelsBeforePrint = [];
   });
   document.querySelector('#print-cv').addEventListener('click', () => window.print());

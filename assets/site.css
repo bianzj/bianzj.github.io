@@ -16,3 +16,7 @@
 
 @media(max-width:640px){.research-nav{gap:7px;margin-bottom:25px}.research-nav a{font-size:11px;padding:5px 10px}.research-group{margin-top:34px;padding-top:23px;scroll-margin-top:0}.research-group h3{font-size:24px}.research-group-heading{margin-bottom:18px;gap:10px}.method-name{font-size:16px}.contribution-box{padding:16px 15px;margin-bottom:22px}.contributions{padding-left:18px}.contributions li{font-size:13px;line-height:1.95;padding-left:3px}.contributions li+li{margin-top:12px}.group-paper-heading{gap:10px;font-size:11px}.group-paper-heading .section-note{font-size:9px}}
 @media print{.research-nav{display:none}.research-group{padding-top:14px;margin-top:24px}.research-group-heading{margin-bottom:10px;break-after:avoid}.research-group h3{font-size:17px}.method-name{font-size:13px}.contribution-box{padding:10px 14px;margin-bottom:12px;break-inside:avoid;background:transparent;border-left-width:2px}.contributions li{font-size:10px;line-height:1.6}.contributions li+li{margin-top:6px}.group-paper-heading{font-size:10px;break-after:avoid}.group-paper-heading .section-note{font-size:8px}}
+
+.profile-overview{padding:0 0 42px;scroll-margin-top:100px}.profile-overview p{font-size:14px;line-height:2;margin:0}.profile-overview p+p{margin-top:16px}
+@media(max-width:640px){.profile-overview{padding-bottom:30px}.profile-overview p{font-size:13px;line-height:1.95}}
+@media print{.profile-overview{padding-bottom:14px}.profile-overview p{font-size:10px;line-height:1.7}.profile-overview p+p{margin-top:8px}}

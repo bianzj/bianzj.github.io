@@ -22,15 +22,6 @@ def heading(number, zh, en, note=''):
 def timeline(items):
     return '<div class="timeline">' + ''.join(f'<article class="timeline-item"><div class="date">{esc(i["date"])}</div><h3>{bi(i["title"])}</h3><div class="place">{bi(i["place"])}</div></article>' for i in items) + '</div>'
 
-def render_paper(p):
-    authors = esc(p['authors']).replace('Bian, Z.', '<strong>Bian, Z.</strong>')
-    title = bi({'zh': p['title_zh'], 'en': p['title']}) if p.get('title_zh') else esc(p['title'])
-    journal = bi({'zh': p['journal_zh'], 'en': p['journal']}) if p.get('journal_zh') else esc(p['journal'])
-    if p.get('authors_zh'):
-        authors_zh = esc(p['authors_zh']).replace('卞尊健', '<strong>卞尊健</strong>')
-        authors = f'<span class="zh">{authors_zh}</span><span class="en" lang="en">{authors}</span>'
-    return f'''<article class="pub" data-category="{esc(p['category'])}"><div class="pub-year">{esc(p['year'])}</div><div><h4><a href="https://doi.org/{esc(p['doi'])}">{title}</a></h4><div class="pub-authors">{authors}</div><div class="pub-journal"><em>{journal}</em> · {esc(p['details'])}</div></div><a class="pub-link" href="https://doi.org/{esc(p['doi'])}" aria-label="DOI: {esc(p['title'])}">↗</a></article>'''
-
 def model_emphasis(value):
     result = bi(value)
     for model in ['TIRT', 'STREAM']:
@@ -97,7 +88,6 @@ def research_figure(category):
 research_groups = []
 for research in data['research']:
     category = research['category']
-    category_papers = [p for p in data['publications'] if p['category'] == category]
     question = f'<p class="research-question"><strong>{bi(research["question"])}</strong></p>' if research.get('question') else ''
     if research.get('summary'):
         overview = f'<p class="research-summary">{model_emphasis(research["summary"])}</p>'
@@ -110,24 +100,13 @@ for research in data['research']:
 {question}
 <div class="research-overview">{overview}</div>
 {figure}
-<details class="paper-details"><summary class="group-paper-heading"><span>{text('代表性论文','Selected publications')}</span><span class="paper-fold-meta"><span class="section-note">{text(f'{len(category_papers)} 篇',f'{len(category_papers)} papers')}</span><span class="fold-label fold-closed">{text('展开','Show')}</span><span class="fold-label fold-open">{text('收起','Hide')}</span><span class="fold-icon" aria-hidden="true"></span></span></summary>
-<div class="group-papers">{''.join(render_paper(p) for p in category_papers)}</div>
-</details>
+
 </section>''')
 projects = ''.join(f'<article class="project"><div class="date">{esc(p["date"])}</div><h3>{bi(p["title"])}</h3><div class="place">{bi(p["funder"])}</div></article>' for p in data['projects'])
 honors = ''.join(f'<div class="honor"><time>{esc(p["year"])}</time><span>{bi(p["title"])}</span></div>' for p in data['honors'])
 committees = ''.join(f'<article class="project service-item"><h3>{bi(item["title"])}</h3><div class="place">{bi(item["organization"])}</div></article>' for item in data['academic_service']['committees'])
 conferences = ''.join(f'<article class="project service-item"><h3>{bi(item["title"])}</h3><div class="place">{bi(item["detail"])}</div></article>' for item in data['academic_service']['conferences'])
 research_nav = ''.join(f'<a href="#research-{esc(r["category"])}">{bi(r["title"])}</a>' for r in data['research'])
-patents = data['achievements']['patents']
-patent_count = len(patents)
-first_inventor_count = sum(p['inventor_rank'] == 1 for p in patents)
-paper_count = len(data['publications'])
-achievement_text = {
-    'zh': f'围绕辐射建模、温度反演与数字孪生，在 Remote Sensing of Environment、ISPRS Journal of Photogrammetry and Remote Sensing、IEEE Transactions on Geoscience and Remote Sensing 等期刊发表 SCI 学术论文 {data["achievements"]["sci_papers"]["zh"]}篇；获授权国家发明专利 {patent_count} 项，其中第一发明人 {first_inventor_count} 项。本页按三个研究方向选列代表性论文 {paper_count} 篇。',
-    'en': f'Published {data["achievements"]["sci_papers"]["en"]} SCI-indexed papers on radiative transfer modeling, temperature retrieval and digital twins, including work in Remote Sensing of Environment, ISPRS Journal of Photogrammetry and Remote Sensing, and IEEE Transactions on Geoscience and Remote Sensing. Named as an inventor on {patent_count} granted Chinese invention patents, including {first_inventor_count} as first inventor. This page presents {paper_count} selected publications across the three research areas.'
-}
-
 page = f'''<!doctype html>
 <html lang="zh-CN">
 <head>
@@ -150,7 +129,7 @@ page = f'''<!doctype html>
 <header class="header"><div class="wrap nav">
 <a class="brand" href="#main">Zunjian Bian<span>ACADEMIC PROFILE</span></a>
 <nav class="nav-links" aria-label="Main navigation">
-<a href="#research">{text('研究与论文','Research')}</a>
+<a href="#research">{text('研究方向','Research')}</a>
 <a href="#cv">{text('简历','CV')}</a>
 <a class="desktop-link" href="#service">{text('学术服务','Service')}</a>
 <a class="desktop-link" href="#software">{text('软件','Software')}</a>
@@ -174,13 +153,14 @@ page = f'''<!doctype html>
 </div>
 <figure class="portrait"><div class="portrait-frame"><img src="assets/portrait.jpg" alt="卞尊健 Zunjian Bian" width="420" height="540" fetchpriority="high"></div><figcaption><span>BEIJING, CHINA</span><span>中国科学院 · CAS</span></figcaption></figure>
 </section>
+<div class="profile-overview" id="achievements"><p>{bi(data['achievements']['overview'])}</p><p>{bi(data['project_overview'])}</p></div>
 <div class="topic-line" aria-label="Research interests"><span>{text('辐射建模','RADIATIVE TRANSFER MODELING')}</span><span>{text('温度反演','TEMPERATURE RETRIEVAL')}</span><span>{text('数字孪生','DIGITAL TWINS')}</span></div>
 <section class="section" id="research">
 <span id="publications"></span>
-{heading('01','研究方向与代表性论文','Research & selected publications')}
+{heading('01','研究方向','Research')}
 <nav class="research-nav" aria-label="Research areas">{research_nav}</nav>
 {''.join(research_groups)}
-<aside class="achievement-overview" id="achievements" aria-labelledby="achievements-title"><h3 id="achievements-title">{text('论文与专利成果','Publications & patents')}</h3><p>{bi(achievement_text)}</p><div class="achievement-numbers"><div><strong>{bi(data['achievements']['sci_papers'])}</strong><span>{text('SCI 学术论文','SCI-indexed papers')}</span></div><div><strong>{patent_count}</strong><span>{text('授权发明专利','Granted invention patents')}</span></div><div><strong>{first_inventor_count}</strong><span>{text('第一发明人专利','Patents as first inventor')}</span></div></div></aside>
+
 </section>
 <section class="section" id="cv">
 {heading('02','教育与工作经历','Experience & education')}
@@ -204,4 +184,4 @@ page = f'''<!doctype html>
 </body></html>
 '''
 (ROOT / 'index.html').write_text(page, encoding='utf-8')
-print(f'Built index.html: {len(data["publications"])} publications, bilingual profile.')
+print('Built index.html: bilingual profile, opening achievement and project summaries, three research areas.')

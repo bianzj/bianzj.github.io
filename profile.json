@@ -578,10 +578,10 @@
   },
   "achievements": {
     "sci_papers": {
-      "zh": "40余",
-      "en": "40+"
+      "zh": "48",
+      "en": "48"
     },
-    "sci_source": "个人简介（简介.docx）",
+    "sci_source": "用户于 2026-10-31 在本次对话中确认",
     "patents": [
       {
         "number": "ZL202011021682.6",
@@ -637,6 +637,14 @@
         "inventor_rank": 3,
         "grant_date": "2026-02-24"
       }
-    ]
+    ],
+    "overview": {
+      "zh": "共发表 SCI 论文48篇，第一/通讯作者发表 SCI 论文22篇，其中中国科学院一区/TOP 刊物论文17篇，包括 Remote Sensing of Environment（RSE）8篇（第一作者6篇、通讯作者2篇）、ISPRS Journal of Photogrammetry and Remote Sensing（ISPRS）1篇、IEEE Transactions on Geoscience and Remote Sensing（IEEE TGRS）7篇（第一作者4篇、通讯作者3篇）；第一作者出版专著1部《复杂地表热红外遥感模型：理论与方法》；第一发明人授权国家发明专利5项（共9项）；谷歌学术引用1400余次。",
+      "en": "Published 48 SCI-indexed papers, including 22 as first or corresponding author. Of these, 17 appeared in journals classified as Q1 or TOP by the Chinese Academy of Sciences, including 8 in Remote Sensing of Environment (RSE; 6 as first author and 2 as corresponding author), 1 in ISPRS Journal of Photogrammetry and Remote Sensing, and 7 in IEEE Transactions on Geoscience and Remote Sensing (IEEE TGRS; 4 as first author and 3 as corresponding author). Published one monograph as first author, Thermal Infrared Remote Sensing Models for Complex Land Surfaces: Theory and Methods. Holds 9 granted Chinese invention patents, including 5 as first inventor, and has over 1,400 citations on Google Scholar."
+    }
+  },
+  "project_overview": {
+    "zh": "主持国家自然科学基金2项（青年项目1项、面上项目1项）、省部级项目3项。参与国家自然科学基金委重点项目2项、国家重点研发项目2项、高分辨率对地观测重大专项等。",
+    "en": "Served as principal investigator on 2 National Natural Science Foundation of China (NSFC) projects (1 Young Scientists Fund project and 1 General Program project) and 3 provincial or ministerial projects. Participated in 2 NSFC Key Program projects, 2 National Key R&D Program projects, and projects under the major program for high-resolution Earth observation, among others."
   }
 }
