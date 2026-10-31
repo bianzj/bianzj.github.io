@@ -53,13 +53,17 @@ def image_gallery(prefix, items, label):
 
 def research_figure(category):
     captions = {
-        'modeling': ('复杂场景与尺度嵌套分解', 'Complex scenes and scale decomposition', 'modeling-schematic.png', 'TIRT 模型验证', 'TIRT model evaluation'),
+        'modeling': ('植被结构与复杂场景建模', 'Modeling vegetation structure and complex scenes', 'modeling-schematic.png', 'TIRT 模型验证', 'TIRT model evaluation'),
         'retrieval': ('多信息协同组分温度反演', 'Component temperature retrieval with combined information', 'retrieval-schematic.png', '组分温度产品与验证', 'Component temperature products and evaluation'),
         'twins': ('地表—大气—轨道—传感器耦合', 'Coupled surface, atmosphere, orbit and sensor', 'twins-schematic.png', 'StreamSensor 卫星论证系统', 'StreamSensor satellite mission assessment system'),
     }
     zh, en, image_file, result_zh, result_en = captions[category]
     schematic = research_image(image_file, zh, en)
     if category == 'modeling':
+        schematic = image_gallery('modeling-method', [
+            ('vegetation','植被结构','Vegetation','modeling-vegetation-schematic.png','植被聚集、分层与辐射贡献解析表达','Vegetation clumping, stratification and analytical radiation contributions'),
+            ('terrain','复杂场景','Complex scenes','modeling-schematic.png','复杂场景的地形与森林尺度嵌套分解','Scale decomposition of terrain and forest in complex scenes'),
+        ], 'Radiative transfer modeling methods')
         result = f'''<div class="result-gallery" data-gallery>
 <div class="result-tabs" role="tablist" aria-label="Model evaluation">
 <button type="button" role="tab" id="tab-vegetation" aria-controls="result-vegetation" aria-selected="true" tabindex="0">{text('植被场景','Vegetation')}</button>
@@ -72,7 +76,6 @@ def research_figure(category):
     elif category == 'retrieval':
         schematic = image_gallery('retrieval-method', [
             ('overview','方法示意','Method','retrieval-schematic.png','热点效应、多像元信息与温差约束','Hotspot effects, multipixel information and temperature difference constraints'),
-            ('hotspot','热点效应','Hotspot','retrieval-hotspot-evaluation.png','热点效应及不同角度距离下的组分温度反演误差','Hotspot effects and component temperature retrieval errors at different angular distances'),
             ('thermal','热成像','Thermal image','retrieval-thermal-observation.png','地表热成像与热辐射角度变化示例','Surface thermal imagery and angular variations in thermal radiation'),
         ], 'Retrieval methods and observations')
         result = image_gallery('retrieval-result', [
@@ -80,7 +83,12 @@ def research_figure(category):
             ('validation','精度验证','Evaluation','retrieval-component-validation.png','土壤与植被组分温度验证及与平均温度的对比','Evaluation of soil and vegetation component temperatures and comparison with mean temperatures'),
         ], 'Temperature products and evaluation')
     else:
-        result = research_image('streamsensor-system.png', result_zh, result_en) + f'<p class="image-caption">{text("卫星轨道、观测几何与成像模拟界面", "Satellite orbit, observation geometry and imaging simulation interface")}</p>'
+        result_zh, result_en = 'StreamSensor 系统与模拟验证', 'StreamSensor system and simulation evaluation'
+        result = image_gallery('twins-result', [
+            ('system','卫星论证','Mission assessment','streamsensor-system.png','StreamSensor 卫星轨道、观测几何与成像模拟界面','StreamSensor satellite orbit, observation geometry and imaging simulation interface'),
+            ('landcover','分地类验证','Land cover','twins-landcover-evaluation.png','不同地类下 STREAM、ERA5 与 GLDAS 的 Bias 和 RMSE 对比','Bias and RMSE of STREAM, ERA5 and GLDAS across land cover types'),
+            ('landsat','空间对比','Spatial comparison','twins-landsat-comparison.png','Landsat 与 STREAM 地表温度空间对比','Spatial comparison of Landsat and STREAM land surface temperatures'),
+        ], 'Digital twin system and evaluation')
     return f'''<div class="research-visuals"><figure class="research-visual schematic"><figcaption>{text('机理示意','Method schematic')}<span>{text(zh,en)}</span></figcaption><div class="visual-image">{schematic}</div></figure><figure class="research-visual result"><figcaption>{text('研究成果','Research results')}<span>{text(result_zh,result_en)}</span></figcaption><div class="visual-image">{result}</div><p class="image-hint">{text('点击图片查看原图','Select an image to view the original')}</p></figure></div>'''
 
 research_groups = []
