@@ -20,16 +20,16 @@
   "official_profile": "https://www.slrss.cn/kydw/fyjyfjs/202502/t20250218_402577.html",
   "updated": "2026-10-31",
   "intro": {
-    "zh": "我从事热红外定量遥感研究，关注地表结构、热辐射传输与组分温度之间的联系。研究工作涵盖辐射传输机理建模、温度产品算法和遥感数字孪生，并探索温度信息在生态系统与地表环境研究中的应用。",
-    "en": "I study thermal infrared remote sensing, with a focus on the relationships between surface structure, radiative transfer, and component temperatures. My work spans physical modeling, temperature retrieval algorithms, and remote sensing digital twins, with applications to ecosystems and the land surface environment."
+    "zh": "我从事热红外定量遥感研究，围绕辐射建模、温度反演与数字孪生三个方向，关注地表结构、热辐射传输与组分温度之间的联系，并探索温度信息在生态系统与地表环境研究中的应用。",
+    "en": "I study thermal infrared remote sensing in three areas: radiative transfer modeling, temperature retrieval, and digital twins. My research focuses on the relationships between surface structure, radiative transfer, and component temperatures, and explores applications of temperature information to ecosystems and the land surface environment."
   },
   "research": [
     {
       "code": "01",
       "name": "TIRT",
       "title": {
-        "zh": "辐射传输机理模型",
-        "en": "Physical radiative transfer modeling"
+        "zh": "辐射建模",
+        "en": "Radiative transfer modeling"
       },
       "text": {
         "zh": "研究植被、城市与复杂地表的热辐射传输过程，描述结构、观测几何及热状态对遥感信号的影响。",
@@ -41,8 +41,8 @@
       "code": "02",
       "name": "LS4T",
       "title": {
-        "zh": "温度产品算法",
-        "en": "Temperature product algorithms"
+        "zh": "温度反演",
+        "en": "Temperature retrieval"
       },
       "text": {
         "zh": "利用多角度与多像元观测信息，开展植被和土壤组分温度反演、温度产品研制及验证。",
@@ -54,8 +54,8 @@
       "code": "03",
       "name": "STREAM",
       "title": {
-        "zh": "遥感数字孪生",
-        "en": "Remote sensing digital twins"
+        "zh": "数字孪生",
+        "en": "Digital twins"
       },
       "text": {
         "zh": "以遥感场景与热红外图像仿真为基础，开展遥感数字孪生研究，连接地表过程、传感器观测与模拟实验。STREAM Studio 提供软件使用入口。",

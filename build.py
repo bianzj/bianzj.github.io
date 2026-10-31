@@ -36,11 +36,11 @@ page = f'''<!doctype html>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="卞尊健 Zunjian Bian，中国科学院空天信息创新研究院副研究员。研究方向：热红外遥感、辐射传输、组分温度与遥感数字孪生。TIRT · LS4T · STREAM Studio.">
+<meta name="description" content="卞尊健 Zunjian Bian，中国科学院空天信息创新研究院副研究员。研究方向：辐射建模、温度反演与数字孪生。TIRT · LS4T · STREAM Studio.">
 <meta name="theme-color" content="#285e4e">
 <meta property="og:type" content="profile">
 <meta property="og:title" content="卞尊健 Zunjian Bian | 热红外遥感">
-<meta property="og:description" content="Thermal infrared remote sensing · Radiative transfer · Component temperatures · Remote sensing digital twins">
+<meta property="og:description" content="Radiative transfer modeling · Temperature retrieval · Digital twins">
 <meta property="og:url" content="https://bianzj.github.io/">
 <link rel="canonical" href="https://bianzj.github.io/">
 <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
@@ -77,7 +77,7 @@ page = f'''<!doctype html>
 </div>
 <figure class="portrait"><div class="portrait-frame"><img src="assets/portrait.jpg" alt="卞尊健 Zunjian Bian" width="420" height="540" fetchpriority="high"></div><figcaption><span>BEIJING, CHINA</span><span>中国科学院 · CAS</span></figcaption></figure>
 </section>
-<div class="topic-line" aria-label="Research interests"><span>{text('热红外定量遥感','THERMAL INFRARED')}</span><span>{text('辐射传输机理','RADIATIVE TRANSFER')}</span><span>{text('地表组分温度','COMPONENT TEMPERATURES')}</span><span>{text('遥感数字孪生','REMOTE SENSING DIGITAL TWINS')}</span></div>
+<div class="topic-line" aria-label="Research interests"><span>{text('辐射建模','RADIATIVE TRANSFER MODELING')}</span><span>{text('温度反演','TEMPERATURE RETRIEVAL')}</span><span>{text('数字孪生','DIGITAL TWINS')}</span></div>
 <section class="section" id="research">
 {heading('01','研究方向与方法','Research & methods','<span class="section-note">TIRT / LS4T / STREAM</span>')}
 <div class="research-grid">{cards}</div>
