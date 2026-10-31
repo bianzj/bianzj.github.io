@@ -34,8 +34,8 @@
       "url": "https://github.com/bianzj/tirt",
       "category": "modeling",
       "question": {
-        "zh": "复杂结构特征对热辐射影响机制不清：",
-        "en": "The mechanisms by which complex surface structures affect thermal radiation remain unclear:"
+        "zh": "复杂结构特征对热辐射影响机制不清",
+        "en": "The mechanisms by which complex surface structures affect thermal radiation remain unclear"
       },
       "summary": {
         "zh": "构建了植被场景热红外辐射传输模型 TIRT，厘清了“植被冠层→聚集效应/分层特征→热辐射信号”的关联关系；揭示了植被结构与地形特征对热辐射的复合影响机制，将 TIRT 模型拓展到植被+地形与植被+城市复合场景。",
@@ -72,8 +72,8 @@
       "url": "https://github.com/bianzj/streamstudio",
       "category": "twins",
       "question": {
-        "zh": "复杂地表热辐射“时空角”多维耦合规律与卫星论证",
-        "en": "Coupled temporal, spatial, and angular patterns of thermal radiation over complex surfaces and satellite mission assessment"
+        "zh": "面向真实地表状况和典型应用的热红外遥感传感器指标优化仿真论证体系缺失",
+        "en": "A simulation framework for optimizing and assessing thermal infrared remote sensing sensor specifications under real surface conditions and representative applications is lacking."
       },
       "summary": {
         "zh": "以组分温度作为桥梁，耦合辐射传输模型与能量平衡过程，创建了热红外遥感动态模拟数字孪生系统 STREAM，实现了热辐射“时空角”多维耦合模拟；研发全要素耦合的在轨成像模拟系统，论证并提出了传感器波段和角度优选方案。",
