@@ -34,8 +34,8 @@
       "url": "https://github.com/bianzj/tirt",
       "category": "modeling",
       "question": {
-        "zh": "复杂结构特征对热辐射“时空角”变化特征影响机制不清：",
-        "en": "The mechanisms by which complex surface structures affect the temporal, spatial, and angular variability of thermal radiation remain unclear:"
+        "zh": "复杂结构特征对热辐射影响机制不清：",
+        "en": "The mechanisms by which complex surface structures affect thermal radiation remain unclear:"
       },
       "summary": {
         "zh": "构建了植被场景热红外辐射传输模型 TIRT，厘清了“植被冠层→聚集效应/分层特征→热辐射信号”的关联关系；揭示了植被结构与地形特征对热辐射的复合影响机制，将 TIRT 模型拓展到植被+地形与植被+城市复合场景。",
@@ -52,20 +52,15 @@
       },
       "url": "https://github.com/bianzj/ls4t",
       "category": "retrieval",
-      "contributions": [
-        {
-          "zh": "权衡反演信息量与反演稳定性，提出了三组分温度反演方法，考虑热点效应降低了反演噪声。",
-          "en": "Balanced retrieval information and stability to develop a three-component temperature retrieval method, incorporating hotspot effects to reduce retrieval noise."
-        },
-        {
-          "zh": "基于贝叶斯优化理论，提出了热辐射角度效应、空间相关与温差约束结合的组分温度反演方法，研制首套全球尺度长时序组分温度产品。",
-          "en": "Developed a component temperature retrieval method based on Bayesian optimization that combines thermal radiation angular effects, spatial correlation, and temperature difference constraints, and produced the first global component temperature product with a long time series."
-        }
-      ],
       "question": {
         "zh": "像元内地物真实物理温度反演方法不足",
         "en": "Methods for retrieving the true physical temperatures of surface components within a pixel remain insufficient."
-      }
+      },
+      "summary": {
+        "zh": "权衡反演信息量与稳定性，提出了三组分温度反演方法，考虑热点效应降低了反演噪声；基于贝叶斯优化理论，提出了热辐射角度效应、空间相关与温差约束结合的组分温度反演方法，研制首套全球尺度长时序组分温度产品。",
+        "en": "Balanced retrieval information and stability to develop a three-component temperature retrieval method, incorporating hotspot effects to reduce retrieval noise. Based on Bayesian optimization, developed a component temperature retrieval method that combines thermal radiation angular effects, spatial correlation, and temperature difference constraints, and produced the first global component temperature product with a long time series."
+      },
+      "figure": "retrieval"
     },
     {
       "code": "03",
@@ -76,20 +71,15 @@
       },
       "url": "https://github.com/bianzj/streamstudio",
       "category": "twins",
-      "contributions": [
-        {
-          "zh": "以组分温度作为桥梁，耦合辐射传输模型与能量平衡过程，创建了热红外遥感动态模拟系统 STREAM，实现了热辐射由瞬时模拟至动态模拟的拓展。",
-          "en": "Used component temperatures to link radiative transfer models with energy balance processes, creating STREAM, a dynamic thermal infrared remote sensing simulation system that extends thermal radiation simulation from instantaneous states to time-varying processes."
-        },
-        {
-          "zh": "研发全要素耦合的在轨成像模拟系统，论证并提出了传感器波段和角度优选方案。",
-          "en": "Developed a fully coupled system for simulating satellite imaging in orbit, and evaluated and proposed preferred sensor spectral bands and viewing angles."
-        }
-      ],
       "question": {
         "zh": "复杂地表热辐射“时空角”多维耦合规律与卫星论证",
         "en": "Coupled temporal, spatial, and angular patterns of thermal radiation over complex surfaces and satellite mission assessment"
-      }
+      },
+      "summary": {
+        "zh": "以组分温度作为桥梁，耦合辐射传输模型与能量平衡过程，创建了热红外遥感动态模拟数字孪生系统 STREAM，实现了热辐射“时空角”多维耦合模拟；研发全要素耦合的在轨成像模拟系统，论证并提出了传感器波段和角度优选方案。",
+        "en": "Used component temperatures to link radiative transfer models with energy balance processes, creating STREAM, a digital twin system for dynamic thermal infrared remote sensing simulation that couples temporal, spatial, and angular variations in thermal radiation. Developed a fully coupled system for simulating satellite imaging in orbit, and evaluated and proposed preferred sensor spectral bands and viewing angles."
+      },
+      "figure": "twins"
     }
   ],
   "experience": [
@@ -583,6 +573,69 @@
           "zh": "",
           "en": ""
         }
+      }
+    ]
+  },
+  "achievements": {
+    "sci_papers": {
+      "zh": "40余",
+      "en": "40+"
+    },
+    "sci_source": "个人简介（简介.docx）",
+    "patents": [
+      {
+        "number": "ZL202011021682.6",
+        "title": "一种小面元黑体扩束定标方法及系统",
+        "inventor_rank": 5,
+        "grant_date": "2021-06-15"
+      },
+      {
+        "number": "ZL202011096826.4",
+        "title": "一种离散森林场景热红外辐射传输模拟方法",
+        "inventor_rank": 1,
+        "grant_date": "2021-04-27"
+      },
+      {
+        "number": "ZL202011096827.9",
+        "title": "基于贝叶斯模型平均方法的地表组分温度多算法集成算法",
+        "inventor_rank": 1,
+        "grant_date": "2021-05-11"
+      },
+      {
+        "number": "ZL202011096835.3",
+        "title": "一种高精度的热辐射方向性半经验半物理模拟方法",
+        "inventor_rank": 3,
+        "grant_date": "2021-09-10"
+      },
+      {
+        "number": "ZL202110096330.5",
+        "title": "纠正静止卫星地表上行长波辐射产品热辐射方向性的方法",
+        "inventor_rank": 4,
+        "grant_date": "2021-09-24"
+      },
+      {
+        "number": "ZL202110107797.5",
+        "title": "基于辐射度的地表高分辨率光谱信息遥感反演方法",
+        "inventor_rank": 1,
+        "grant_date": "2021-09-24"
+      },
+      {
+        "number": "ZL202110794684.7",
+        "title": "一种三维复杂地表遥感光学特征反演方法及系统",
+        "inventor_rank": 1,
+        "grant_date": "2023-12-29"
+      },
+      {
+        "number": "ZL202110796019.1",
+        "title": "一种三维复杂地表叶面积指数反演方法及系统",
+        "inventor_rank": 1,
+        "grant_date": "2023-12-29"
+      },
+      {
+        "number": "ZL202310303034.7",
+        "title": "地表温度产品的真实性检验方法、装置及电子设备",
+        "inventor_rank": 3,
+        "grant_date": "2026-02-24"
       }
     ]
   }

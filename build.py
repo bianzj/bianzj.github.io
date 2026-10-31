@@ -37,35 +37,35 @@ def model_emphasis(value):
         result = result.replace(model, f'<em>{model}</em>')
     return result
 
-def modeling_figure():
-    labels = {
-        'figure_title': ('复杂结构与热辐射“时空角”特征关系示意', 'Complex surface structure and thermal radiation variability'),
-        'vegetation': ('植被场景', 'Vegetation'),
-        'terrain': ('植被 + 地形', 'Vegetation + terrain'),
-        'urban': ('植被 + 城市', 'Vegetation + urban surfaces'),
-        'clumping': ('聚集效应 · 分层特征', 'Clumping · Vertical stratification'),
-        'terrain_features': ('地形起伏 · 植被分布', 'Terrain relief · Vegetation distribution'),
-        'urban_features': ('建筑形态 · 植被配置', 'Building form · Vegetation arrangement'),
-        'structure_input': ('复杂结构', 'Complex structure'),
-        'radiative_transfer': ('辐射传输', 'Radiative transfer'),
-        'radiation_response': ('热辐射响应', 'Thermal radiation response'),
-        'time': ('时间', 'Time'), 'time_detail': ('时间变化', 'Temporal variation'),
-        'space': ('空间', 'Space'), 'space_detail': ('空间异质性', 'Spatial heterogeneity'),
-        'angle': ('角度', 'Angle'), 'angle_detail': ('方向差异', 'Directional variation'),
-        'conceptual_note': ('结构与响应关系示意；图中曲线和色块不表示定量模拟结果。', 'Conceptual relationships; curves and color patches do not represent quantitative simulation results.'),
+def research_image(filename, zh, en):
+    from struct import unpack
+    path = 'assets/research/' + filename
+    width, height = unpack('>II', (ROOT / path).read_bytes()[16:24])
+    return f'<a class="research-image-link" href="{path}" target="_blank" rel="noopener" aria-label="{esc(en)}"><img src="{path}" alt="{esc(zh + " / " + en)}" width="{width}" height="{height}" loading="lazy"></a>'
+
+def research_figure(category):
+    captions = {
+        'modeling': ('复杂场景与尺度嵌套分解', 'Complex scenes and scale decomposition', 'modeling-schematic.png', 'TIRT 模型验证', 'TIRT model evaluation'),
+        'retrieval': ('多信息协同组分温度反演', 'Component temperature retrieval with combined information', 'retrieval-schematic.png', 'AATSR · SLSTR · MSG 组分温度产品', 'AATSR · SLSTR · MSG component temperature products'),
+        'twins': ('地表—大气—轨道—传感器耦合', 'Coupled surface, atmosphere, orbit and sensor', 'twins-schematic.png', 'StreamSensor 卫星论证系统', 'StreamSensor satellite mission assessment system'),
     }
-    result = (ROOT / 'templates/modeling-figure.html').read_text()
-    for key, (zh, en) in labels.items():
-        result = result.replace('{{' + key + '}}', text(zh, en))
-    alternatives = {
-        'figure_alt': 'Conceptual diagram of complex surface structures, TIRT, and temporal, spatial and angular thermal radiation variations',
-        'vegetation_alt': 'Clustered tree crowns with distinct vertical layers',
-        'terrain_alt': 'Vegetation distributed across sloping terrain',
-        'urban_alt': 'Buildings of different heights interspersed with vegetation',
-    }
-    for key, value in alternatives.items():
-        result = result.replace('{{' + key + '}}', esc(value))
-    return result
+    zh, en, image_file, result_zh, result_en = captions[category]
+    schematic = research_image(image_file, zh, en)
+    if category == 'modeling':
+        result = f'''<div class="result-gallery" data-gallery>
+<div class="result-tabs" role="tablist" aria-label="Model evaluation">
+<button type="button" role="tab" id="tab-vegetation" aria-controls="result-vegetation" aria-selected="true" tabindex="0">{text('植被场景','Vegetation')}</button>
+<button type="button" role="tab" id="tab-terrain" aria-controls="result-terrain" aria-selected="false" tabindex="-1">{text('地形场景','Terrain')}</button></div>
+<div class="result-panel" id="result-vegetation" role="tabpanel" aria-labelledby="tab-vegetation">{research_image('modeling-validation.png','无人机测量、新模型与 MGP 模型对比','Comparison of UAV measurements, the new model and MGP')}<p class="image-caption">{text('无人机测量与模型模拟的方向性及误差对比','Directional patterns and errors: UAV measurements and model simulations')}</p></div>
+<div class="result-panel" id="result-terrain" role="tabpanel" aria-labelledby="tab-terrain">
+<div class="polar-pair"><figure>{research_image('modeling-flat-polar.png','不含地形的植被场景热辐射方向性','Thermal radiation directionality of vegetation without terrain')}<figcaption>{text('不含地形的植被场景','Vegetation without terrain')}</figcaption></figure><figure>{research_image('modeling-terrain-polar.png','植被与地形复合场景热辐射方向性','Thermal radiation directionality of coupled vegetation and terrain')}<figcaption>{text('植被 + 地形','Vegetation + terrain')}</figcaption></figure></div>
+{research_image('modeling-terrain-validation.png','山谷、山脊和山峰场景的模型误差对比','Model errors over valley, ridge and peak scenes')}
+<p class="image-caption">{text('地形角度效应与山谷、山脊、山峰场景验证；极坐标图各自保留原色标','Terrain angular effects and evaluation over valleys, ridges and peaks; each polar plot retains its original color scale')}</p></div></div>'''
+    elif category == 'retrieval':
+        result = research_image('retrieval-products.png', result_zh, result_en) + f'<p class="image-caption">{text("全球与区域植被、土壤组分温度产品", "Global and regional vegetation and soil temperature products")}</p>'
+    else:
+        result = research_image('streamsensor-system.png', result_zh, result_en) + f'<p class="image-caption">{text("卫星轨道、观测几何与成像模拟界面", "Satellite orbit, observation geometry and imaging simulation interface")}</p>'
+    return f'''<div class="research-visuals"><figure class="research-visual schematic"><figcaption>{text('机理示意','Method schematic')}<span>{text(zh,en)}</span></figcaption><div class="visual-image">{schematic}</div></figure><figure class="research-visual result"><figcaption>{text('研究成果','Research results')}<span>{text(result_zh,result_en)}</span></figcaption><div class="visual-image">{result}</div><p class="image-hint">{text('点击图片查看原图','Select an image to view the original')}</p></figure></div>'''
 
 research_groups = []
 for research in data['research']:
@@ -77,7 +77,7 @@ for research in data['research']:
     else:
         findings = ''.join(f'<li>{model_emphasis(finding)}</li>' for finding in research['contributions'])
         overview = f'<div class="contribution-box"><ol class="contributions">{findings}</ol></div>'
-    figure = modeling_figure() if research.get('figure') == 'modeling' else ''
+    figure = research_figure(category)
     research_groups.append(f'''<section class="research-group" id="research-{esc(category)}" aria-labelledby="title-{esc(category)}">
 <div class="research-group-heading"><h3 id="title-{esc(category)}">{bi(research['title'])}</h3><a class="method-name" href="{esc(research['url'])}">{esc(research['name'])}</a></div>
 {question}
@@ -92,6 +92,14 @@ honors = ''.join(f'<div class="honor"><time>{esc(p["year"])}</time><span>{bi(p["
 committees = ''.join(f'<article class="project service-item"><h3>{bi(item["title"])}</h3><div class="place">{bi(item["organization"])}</div></article>' for item in data['academic_service']['committees'])
 conferences = ''.join(f'<article class="project service-item"><h3>{bi(item["title"])}</h3><div class="place">{bi(item["detail"])}</div></article>' for item in data['academic_service']['conferences'])
 research_nav = ''.join(f'<a href="#research-{esc(r["category"])}">{bi(r["title"])}</a>' for r in data['research'])
+patents = data['achievements']['patents']
+patent_count = len(patents)
+first_inventor_count = sum(p['inventor_rank'] == 1 for p in patents)
+paper_count = len(data['publications'])
+achievement_text = {
+    'zh': f'围绕辐射建模、温度反演与数字孪生，在 Remote Sensing of Environment、ISPRS Journal of Photogrammetry and Remote Sensing、IEEE Transactions on Geoscience and Remote Sensing 等期刊发表 SCI 学术论文 {data["achievements"]["sci_papers"]["zh"]}篇；获授权国家发明专利 {patent_count} 项，其中第一发明人 {first_inventor_count} 项。本页按三个研究方向选列代表性论文 {paper_count} 篇。',
+    'en': f'Published {data["achievements"]["sci_papers"]["en"]} SCI-indexed papers on radiative transfer modeling, temperature retrieval and digital twins, including work in Remote Sensing of Environment, ISPRS Journal of Photogrammetry and Remote Sensing, and IEEE Transactions on Geoscience and Remote Sensing. Named as an inventor on {patent_count} granted Chinese invention patents, including {first_inventor_count} as first inventor. This page presents {paper_count} selected publications across the three research areas.'
+}
 
 page = f'''<!doctype html>
 <html lang="zh-CN">
@@ -145,6 +153,7 @@ page = f'''<!doctype html>
 {heading('01','研究方向与代表性论文','Research & selected publications')}
 <nav class="research-nav" aria-label="Research areas">{research_nav}</nav>
 {''.join(research_groups)}
+<aside class="achievement-overview" id="achievements" aria-labelledby="achievements-title"><h3 id="achievements-title">{text('论文与专利成果','Publications & patents')}</h3><p>{bi(achievement_text)}</p><div class="achievement-numbers"><div><strong>{bi(data['achievements']['sci_papers'])}</strong><span>{text('SCI 学术论文','SCI-indexed papers')}</span></div><div><strong>{patent_count}</strong><span>{text('授权发明专利','Granted invention patents')}</span></div><div><strong>{first_inventor_count}</strong><span>{text('第一发明人专利','Patents as first inventor')}</span></div></div></aside>
 </section>
 <section class="section" id="cv">
 {heading('02','教育与工作经历','Experience & education')}

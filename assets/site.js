@@ -12,14 +12,44 @@
   try { saved = localStorage.getItem('cv-language'); } catch (_) {}
   if (saved) setLanguage(saved);
   toggle.addEventListener('click', () => setLanguage(root.lang === 'en' ? 'zh-CN' : 'en'));
-  let detailsBeforePrint = [];
+  document.querySelectorAll('[data-gallery]').forEach(gallery => {
+    const tabs = Array.from(gallery.querySelectorAll('[role="tab"]'));
+    const select = tab => {
+      tabs.forEach(item => {
+        const active = item === tab;
+        item.setAttribute('aria-selected', String(active));
+        item.tabIndex = active ? 0 : -1;
+        document.getElementById(item.getAttribute('aria-controls')).hidden = !active;
+      });
+    };
+    tabs.forEach((tab, index) => {
+      tab.addEventListener('click', () => select(tab));
+      tab.addEventListener('keydown', event => {
+        let next;
+        if (event.key === 'ArrowRight') next = (index + 1) % tabs.length;
+        if (event.key === 'ArrowLeft') next = (index - 1 + tabs.length) % tabs.length;
+        if (event.key === 'Home') next = 0;
+        if (event.key === 'End') next = tabs.length - 1;
+        if (next !== undefined) { event.preventDefault(); select(tabs[next]); tabs[next].focus(); }
+      });
+    });
+    gallery.dataset.enhanced = 'true';
+    select(tabs[0]);
+  });
+  let detailsBeforePrint = null;
+  let panelsBeforePrint = [];
   window.addEventListener('beforeprint', () => {
+    if (detailsBeforePrint !== null) return;
     detailsBeforePrint = Array.from(document.querySelectorAll('.paper-details'), element => ({element, open:element.open}));
     detailsBeforePrint.forEach(({element}) => { element.open = true; });
+    panelsBeforePrint = Array.from(document.querySelectorAll('.result-panel'), element => ({element, hidden:element.hidden}));
+    panelsBeforePrint.forEach(({element}) => { element.hidden = false; });
   });
   window.addEventListener('afterprint', () => {
-    detailsBeforePrint.forEach(({element, open}) => { element.open = open; });
-    detailsBeforePrint = [];
+    (detailsBeforePrint || []).forEach(({element, open}) => { element.open = open; });
+    panelsBeforePrint.forEach(({element, hidden}) => { element.hidden = hidden; });
+    detailsBeforePrint = null;
+    panelsBeforePrint = [];
   });
   document.querySelector('#print-cv').addEventListener('click', () => window.print());
 })();
