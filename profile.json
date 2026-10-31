@@ -58,8 +58,8 @@
         "en": "Digital twins"
       },
       "text": {
-        "zh": "以遥感场景与热红外图像仿真为基础，开展遥感数字孪生研究，连接地表过程、传感器观测与模拟实验。STREAM Studio 提供软件使用入口。",
-        "en": "Develop remote sensing digital twins through scene and thermal infrared image simulation, connecting land surface processes, sensor observations, and numerical experiments. STREAM Studio provides the software interface."
+        "zh": "以遥感场景与热红外图像仿真为基础，开展遥感数字孪生研究，连接地表过程、传感器观测与模拟实验。",
+        "en": "Develop remote sensing digital twins through scene and thermal infrared image simulation, connecting land surface processes, sensor observations, and numerical experiments."
       },
       "url": "https://github.com/bianzj/streamstudio"
     }
