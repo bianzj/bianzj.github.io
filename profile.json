@@ -1,0 +1,274 @@
+{
+  "name": {
+    "zh": "卞尊健",
+    "en": "Zunjian Bian"
+  },
+  "role": {
+    "zh": "副研究员",
+    "en": "Associate Professor"
+  },
+  "institution": {
+    "zh": "中国科学院空天信息创新研究院",
+    "en": "Aerospace Information Research Institute, Chinese Academy of Sciences"
+  },
+  "laboratory": {
+    "zh": "遥感与数字地球全国重点实验室",
+    "en": "State Key Laboratory of Remote Sensing and Digital Earth"
+  },
+  "email": "bianzj@aircas.ac.cn",
+  "github": "https://github.com/bianzj",
+  "official_profile": "https://www.slrss.cn/kydw/fyjyfjs/202502/t20250218_402577.html",
+  "updated": "2026-10-31",
+  "intro": {
+    "zh": "我从事热红外定量遥感研究，关注地表结构、热辐射传输与组分温度之间的联系。研究工作涵盖辐射传输机理建模、温度产品算法和遥感图像仿真，并探索温度信息在生态系统与地表环境研究中的应用。",
+    "en": "I study thermal infrared remote sensing, with a focus on the relationships between surface structure, radiative transfer, and component temperatures. My work spans physical modeling, temperature retrieval algorithms, and remote sensing image simulation, with applications to ecosystems and the land surface environment."
+  },
+  "research": [
+    {
+      "code": "01",
+      "name": "TIRT",
+      "title": {
+        "zh": "辐射传输机理模型",
+        "en": "Physical radiative transfer modeling"
+      },
+      "text": {
+        "zh": "研究植被、城市与复杂地表的热辐射传输过程，描述结构、观测几何及热状态对遥感信号的影响。",
+        "en": "Model thermal radiative transfer over vegetation, cities, and heterogeneous surfaces, accounting for structure, viewing geometry, and thermal state."
+      },
+      "url": "https://github.com/bianzj/tirt"
+    },
+    {
+      "code": "02",
+      "name": "LS4T",
+      "title": {
+        "zh": "温度产品算法",
+        "en": "Temperature product algorithms"
+      },
+      "text": {
+        "zh": "利用多角度与多像元观测信息，开展植被和土壤组分温度反演、温度产品研制及验证。",
+        "en": "Use multiangle and multipixel observations to retrieve vegetation and soil temperatures, and develop and evaluate temperature products."
+      },
+      "url": "https://github.com/bianzj/ls4t"
+    },
+    {
+      "code": "03",
+      "name": "STREAM",
+      "title": {
+        "zh": "图像仿真模拟方法",
+        "en": "Remote sensing image simulation"
+      },
+      "text": {
+        "zh": "开展遥感场景与热红外图像仿真，连接地表过程、传感器观测与模拟实验。STREAM Studio 提供软件使用入口。",
+        "en": "Simulate remote sensing scenes and thermal infrared images to connect land surface processes, sensor observations, and numerical experiments. STREAM Studio provides the software interface."
+      },
+      "url": "https://github.com/bianzj/streamstudio"
+    }
+  ],
+  "experience": [
+    {
+      "date": "2023.03 —",
+      "title": {
+        "zh": "副研究员",
+        "en": "Associate Professor"
+      },
+      "place": {
+        "zh": "中国科学院空天信息创新研究院",
+        "en": "Aerospace Information Research Institute, CAS"
+      }
+    },
+    {
+      "date": "2022.04 — 2023.03",
+      "title": {
+        "zh": "助理研究员",
+        "en": "Assistant Professor"
+      },
+      "place": {
+        "zh": "中国科学院空天信息创新研究院",
+        "en": "Aerospace Information Research Institute, CAS"
+      }
+    },
+    {
+      "date": "2019.01 — 2022.04",
+      "title": {
+        "zh": "特别研究助理",
+        "en": "Postdoctoral Researcher"
+      },
+      "place": {
+        "zh": "中国科学院空天信息创新研究院",
+        "en": "Aerospace Information Research Institute, CAS"
+      }
+    }
+  ],
+  "education": [
+    {
+      "date": "2013.09 — 2018.07",
+      "title": {
+        "zh": "博士 · 地图学与地理信息系统",
+        "en": "Ph.D. in Cartography and Geographical Information Systems"
+      },
+      "place": {
+        "zh": "中国科学院遥感与数字地球研究所",
+        "en": "Institute of Remote Sensing and Digital Earth, CAS"
+      }
+    },
+    {
+      "date": "2016.10 — 2017.10",
+      "title": {
+        "zh": "博士联合培养",
+        "en": "Visiting Ph.D. Researcher"
+      },
+      "place": {
+        "zh": "法国国家农业研究院 INRA",
+        "en": "French National Institute for Agricultural Research (INRA)"
+      }
+    },
+    {
+      "date": "2009.09 — 2013.07",
+      "title": {
+        "zh": "本科",
+        "en": "B.Sc."
+      },
+      "place": {
+        "zh": "中国石油大学（华东）",
+        "en": "China University of Petroleum (East China)"
+      }
+    }
+  ],
+  "projects": [
+    {
+      "date": "2024 — 2027",
+      "title": {
+        "zh": "北京市科技新星项目",
+        "en": "Beijing Science and Technology Rising Star Program"
+      },
+      "funder": {
+        "zh": "项目负责人",
+        "en": "Principal Investigator"
+      }
+    },
+    {
+      "date": "2023 — 2026",
+      "title": {
+        "zh": "考虑能量平衡过程的山区热红外辐射传输建模与组分温度反演",
+        "en": "Thermal infrared radiative transfer modeling and component temperature retrieval in mountainous areas considering energy balance"
+      },
+      "funder": {
+        "zh": "国家自然科学基金面上项目 · 项目负责人",
+        "en": "NSFC General Program · Principal Investigator"
+      }
+    },
+    {
+      "date": "2020 — 2022",
+      "title": {
+        "zh": "离散森林场景组分温度模拟与热辐射方向性建模",
+        "en": "Component temperature simulation and thermal radiation anisotropy modeling in sparse forests"
+      },
+      "funder": {
+        "zh": "国家自然科学基金青年科学基金 · 项目负责人",
+        "en": "NSFC Young Scientists Fund · Principal Investigator"
+      }
+    }
+  ],
+  "honors": [
+    {
+      "year": "2024",
+      "title": {
+        "zh": "北京市科技新星计划",
+        "en": "Beijing Science and Technology Rising Star Program"
+      }
+    },
+    {
+      "year": "2023",
+      "title": {
+        "zh": "中国科学院空天院“未来之星”",
+        "en": "Future Star Program, AIR, CAS"
+      }
+    },
+    {
+      "year": "2019",
+      "title": {
+        "zh": "博士后创新人才支持计划",
+        "en": "China National Postdoctoral Program for Innovative Talents"
+      }
+    },
+    {
+      "year": "2018",
+      "title": {
+        "zh": "中国科学院院长特别奖",
+        "en": "Special Prize of the President Scholarship, CAS"
+      }
+    },
+    {
+      "year": "2018",
+      "title": {
+        "zh": "北京市优秀毕业生",
+        "en": "Outstanding Graduate of Beijing"
+      }
+    }
+  ],
+  "publications": [
+    {
+      "year": 2024,
+      "title": "An analytical urban temperature model with building heterogeneity using geometric optical theory",
+      "doi": "10.1016/j.rse.2023.113948",
+      "journal": "Remote Sensing of Environment",
+      "authors": "Bian, Z.; Fan, T.; Roujean, J.L.; Wang, D.; Irvine, M.; Wu, S.; Cao, B.; Li, H.; Du, Y.; Xiao, Q.; Liu, Q.",
+      "details": "301, 113948",
+      "category": "modeling"
+    },
+    {
+      "year": 2024,
+      "title": "An integrated method for angular and temporal reconstruction of land surface temperatures",
+      "doi": "10.1016/j.rse.2024.114357",
+      "journal": "Remote Sensing of Environment",
+      "authors": "Bian, Z.; Zhong, S.; Roujean, J.L.; Liu, X.; Duan, S.; Li, H.; Cao, B.; Li, R.; Du, Y.; Xiao, Q.; Liu, Q.",
+      "details": "313, 114357",
+      "category": "application"
+    },
+    {
+      "year": 2023,
+      "title": "An angular normalization method for temperature vegetation dryness index (TVDI) in monitoring agricultural drought",
+      "doi": "10.1016/j.rse.2022.113330",
+      "journal": "Remote Sensing of Environment",
+      "authors": "Bian, Z.; Roujean, J.; Fan, T.; Dong, Y.; Hu, T.; Cao, B.; Li, H.; Du, Y.; Xiao, Q.; Liu, Q.",
+      "details": "284, 113330",
+      "category": "application"
+    },
+    {
+      "year": 2022,
+      "title": "A TIR forest reflectance and transmittance (FRT) model for directional temperatures with structural and thermal stratification",
+      "doi": "10.1016/j.rse.2021.112749",
+      "journal": "Remote Sensing of Environment",
+      "authors": "Bian, Z.; Wu, S.; Roujean, J.L.; Cao, B.; Li, H.; Yin, G.; Du, Y.; Xiao, Q.; Liu, Q.",
+      "details": "268, 112749",
+      "category": "modeling"
+    },
+    {
+      "year": 2021,
+      "title": "Modeling the directional anisotropy of fine-scale TIR emissions over tree and crop canopies based on UAV measurements",
+      "doi": "10.1016/j.rse.2020.112150",
+      "journal": "Remote Sensing of Environment",
+      "authors": "Bian, Z.; Roujean, J.L.; Cao, B.; Du, Y.; Li, H.; Gamet, P.; Fang, J.; Xiao, Q.; Liu, Q.",
+      "details": "252, 112150",
+      "category": "modeling"
+    },
+    {
+      "year": 2018,
+      "title": "An analytical four-component directional brightness temperature model for crop and forest canopies",
+      "doi": "10.1016/j.rse.2018.03.010",
+      "journal": "Remote Sensing of Environment",
+      "authors": "Bian, Z.; Cao, B.; Li, H.; Du, Y.; Lagouarde, J.P.; Xiao, Q.; Liu, Q.",
+      "details": "209, 731-746",
+      "category": "modeling"
+    },
+    {
+      "year": 2017,
+      "title": "A Robust Inversion Algorithm for Surface Leaf and Soil Temperatures Using the Vegetation Clumping Index",
+      "doi": "10.3390/rs9080780",
+      "journal": "Remote Sensing",
+      "authors": "Bian, Z.; Cao, B.; Li, H.; Du, Y.; Song, L.; Fan, W.; Xiao, Q.; Liu, Q.",
+      "details": "9, 780",
+      "category": "retrieval"
+    }
+  ]
+}
