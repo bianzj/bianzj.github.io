@@ -1,6 +1,6 @@
 # 卞尊健 Zunjian Bian
 
-科研个人主页，计划发布于 https://bianzj.github.io/ 。支持中英文切换、研究进展分方向展示，以及打印简历。首页个人简介后展示成果统计与科研项目概况；代表性论文与授权发明专利集中放在研究方向后的独立板块，可分别折叠，打印时自动展开。每个方向采用左侧机理示意、右侧成果图的布局，图片点击可查看原图；辐射建模左侧可切换植被结构和复杂场景示意，右侧可切换植被和地形验证；温度反演左侧可切换方法示意与热成像，右侧可切换温度产品和精度验证；数字孪生左侧可切换耦合示意与 Landsat 空间对比，右侧可切换 StreamSensor 系统和分地类精度。桌面端采用等宽双栏和统一图框，平板与手机端上下排列，原图保持比例并可点击查看。三组示意图和成果图使用用户提供的原图，保留色标、坐标和图内标注，图片位于 `assets/research/`。纯静态页面，无第三方字体、分析跟踪或前端构建依赖。
+科研个人主页：https://bianzj.github.io/ 。支持中英文切换、研究进展分方向展示，以及打印简历。首页个人简介后展示成果统计与科研项目概况；代表性论文与授权发明专利集中放在研究方向后的独立板块，可分别折叠，打印时自动展开。每个方向采用左侧机理示意、右侧成果图的布局，图片点击可查看原图；辐射建模左侧可切换植被结构和复杂场景示意，右侧可切换植被和地形验证；温度反演左侧可切换方法示意与热成像，右侧可切换温度产品和精度验证；数字孪生左侧可切换耦合示意与 Landsat 空间对比，右侧可切换 StreamSensor 系统和分地类精度。桌面端采用等宽双栏和统一图框，平板与手机端上下排列，原图保持比例并可点击查看。三组示意图和成果图使用用户提供的原图，保留色标、坐标和图内标注，图片位于 `assets/research/`。纯静态页面，无第三方字体、分析跟踪或前端构建依赖。
 
 ## STREAM Studio 软件案例页
 
@@ -17,18 +17,34 @@ python3 -m http.server 8765 --bind 127.0.0.1
 
 浏览器打开 http://127.0.0.1:8765 。修改样式请编辑 `assets/site.css`，交互逻辑位于 `assets/site.js`。
 
-## 发布
+## 发布与长期维护
 
-仓库名称为 `bianzj.github.io`，账号为 `bianzj`。将主页文件推送到 `main`，在仓库 Settings → Pages 中，选择 Deploy from a branch → main → /(root)。页面无需 Jekyll 或 GitHub Actions 自定义工作流。
+- 主页：https://bianzj.github.io/
+- STREAM Studio 软件案例：https://bianzj.github.io/stream.html
+- 源码仓库：https://github.com/bianzj/bianzj.github.io
+- 网站设置：https://github.com/bianzj/bianzj.github.io/settings/pages
 
-已登录 GitHub CLI 时，可在本目录运行：
+网站由 GitHub Pages 托管，使用 `main` 分支根目录发布。访问网站不依赖本地电脑或本地预览服务。页面为静态 HTML/CSS/JavaScript，没有服务器进程、数据库或前端依赖需要常驻运行。保留仓库名称和 Pages 配置，可沿用上述地址；每次推送 `main` 后会自动重新部署。
+
+日常修改个人资料使用 `profile.json`；软件案例配置使用 `stream_cases.json`。编辑后运行 `python3 build.py`，本地预览确认，再提交并推送：
 
 ```sh
-gh repo create bianzj/bianzj.github.io --public --source=. --remote=origin --push
-gh api --method POST repos/bianzj/bianzj.github.io/pages -f 'source[branch]=main' -f 'source[path]=/'
+python3 build.py
+git diff --check
+git add profile.json stream_cases.json build.py build_cases.py index.html stream.html assets README.md
+git commit -m "Update website content"
+git push origin main
 ```
 
-首次发布前应先确认仓库不存在，避免覆盖已有个人网站。
+换电脑时，可从 GitHub 克隆仓库继续维护：
+
+```sh
+git clone https://github.com/bianzj/bianzj.github.io.git
+cd bianzj.github.io
+python3 build.py
+```
+
+仓库保留修改历史。通过 Pages 设置和仓库 Actions 查看部署状态；需要恢复旧内容时，可撤销对应提交后推送。
 
 ## 内容来源
 
