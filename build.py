@@ -189,7 +189,7 @@ page = f'''<!doctype html>
 </section>
 <section class="section" id="cv">
 {heading('03','教育与工作经历','Experience & education')}
-<div class="cv-grid"><div><h3 class="subheading">{text('工作经历','Appointments')}</h3>{timeline(data['experience'])}</div><div><h3 class="subheading">{text('教育经历','Education')}</h3>{timeline(data['education'])}</div></div>
+<div class="cv-grid"><div><h3 class="subheading">{text('工作经历','Appointments')}</h3>{timeline(data['experience'])}</div><div><h3 class="subheading">{text('教育与访学经历','Education & visiting appointments')}</h3>{timeline(data['visiting_appointments'] + data['education'])}</div></div>
 </section>
 <section class="section" id="projects">
 {heading('04','科研项目与荣誉','Projects & recognition')}
