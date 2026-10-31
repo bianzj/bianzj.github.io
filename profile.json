@@ -449,5 +449,91 @@
       "details": "54(8), 4660-4671",
       "category": "retrieval"
     }
-  ]
+  ],
+  "academic_service": {
+    "committees": [
+      {
+        "title": {
+          "zh": "定量遥感专委会青年委员",
+          "en": "Young Member, Quantitative Remote Sensing Committee"
+        },
+        "organization": {
+          "zh": "中国遥感应用协会",
+          "en": "China Association of Remote Sensing Application"
+        }
+      },
+      {
+        "title": {
+          "zh": "热红外遥感专委会委员",
+          "en": "Member, Thermal Infrared Remote Sensing Committee"
+        },
+        "organization": {
+          "zh": "中国遥感应用协会",
+          "en": "China Association of Remote Sensing Application"
+        }
+      },
+      {
+        "title": {
+          "zh": "人工智能委员会委员",
+          "en": "Member, Artificial Intelligence Committee"
+        },
+        "organization": {
+          "zh": "中国气象服务协会",
+          "en": "China Meteorological Service Association"
+        }
+      }
+    ],
+    "conferences": [
+      {
+        "title": {
+          "zh": "2025 年 IGARSS 会议专题主席",
+          "en": "Session Chair, IGARSS 2025"
+        },
+        "detail": {
+          "zh": "Thermal Infrared Remote Sensing for Global Climate Change",
+          "en": "Thermal Infrared Remote Sensing for Global Climate Change"
+        }
+      },
+      {
+        "title": {
+          "zh": "2025 年 ISDE 会议专题主席",
+          "en": "Session Chair, ISDE 2025"
+        },
+        "detail": {
+          "zh": "Thermal Infrared Remote Sensing for Global Climate Change",
+          "en": "Thermal Infrared Remote Sensing for Global Climate Change"
+        }
+      },
+      {
+        "title": {
+          "zh": "地学青年论坛专题组织",
+          "en": "Session Organizer, Youth Forum on Geosciences"
+        },
+        "detail": {
+          "zh": "“水热特征参量遥感反演方法与应用”和“热红外遥感理论、方法和应用”",
+          "en": "“Remote Sensing Retrieval Methods and Applications for Water and Thermal Parameters” and “Thermal Infrared Remote Sensing: Theory, Methods, and Applications”"
+        }
+      },
+      {
+        "title": {
+          "zh": "第八届热红外遥感大会执行主席",
+          "en": "Executive Chair, 8th Thermal Infrared Remote Sensing Conference"
+        },
+        "detail": {
+          "zh": "",
+          "en": ""
+        }
+      },
+      {
+        "title": {
+          "zh": "第二届青年定量遥感研讨会副主席",
+          "en": "Vice Chair, 2nd Young Scholars Symposium on Quantitative Remote Sensing"
+        },
+        "detail": {
+          "zh": "",
+          "en": ""
+        }
+      }
+    ]
+  }
 }
