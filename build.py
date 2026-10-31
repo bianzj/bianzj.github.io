@@ -150,7 +150,7 @@ page = f'''<!doctype html>
 <header class="header"><div class="wrap nav">
 <a class="brand" href="#main">Zunjian Bian<span>ACADEMIC PROFILE</span></a>
 <nav class="nav-links" aria-label="Main navigation">
-<a class="desktop-link" href="stream.html">{text('STREAM 案例','STREAM cases')}</a>
+<a class="desktop-link" href="stream.html">{text('软件案例','Software cases')}</a>
 <a href="#research">{text('研究方向','Research')}</a>
 <a class="desktop-link" href="#publications">{text('论文与专利','Publications')}</a>
 <a href="#cv">{text('简历','CV')}</a>
@@ -169,7 +169,7 @@ page = f'''<!doctype html>
 <p class="intro">{bi(data['intro'])}</p>
 <div class="actions">
 <a class="button primary" href="mailto:{esc(data['email'])}">{text('邮件联系','Get in touch')}<span aria-hidden="true">↗</span></a>
-<a class="button" href="stream.html">{text('STREAM 案例','STREAM cases')}<span aria-hidden="true">↗</span></a>
+<a class="button" href="stream.html">{text('软件案例','Software cases')}<span aria-hidden="true">↗</span></a>
 <a class="button" href="{esc(data['github'])}">GitHub<span aria-hidden="true">↗</span></a>
 <button class="button" type="button" id="print-cv">{text('打印简历','Print CV')}<span aria-hidden="true">↓</span></button>
 </div>
@@ -203,7 +203,7 @@ page = f'''<!doctype html>
 </section>
 <section class="section" id="software">
 {heading('06','科研软件','Research software')}
-<div class="software"><div><span class="eyebrow">MODELS INTO PRACTICE</span><h3>STREAM Studio</h3><p>{text('面向遥感数字孪生与模拟实验的软件工具。访问项目仓库，了解功能、安装方式和使用文档；TIRT 与 LS4T 也可通过各自仓库获取。','Software for remote sensing digital twins and numerical experiments. Visit the repository for features, installation instructions, and documentation. TIRT and LS4T are also available in their respective repositories.')}</p></div><a class="button" href="https://github.com/bianzj/streamstudio">{text('访问软件仓库','Explore the repository')}<span aria-hidden="true">↗</span></a></div>
+<div class="software"><div><span class="eyebrow">MODELS INTO PRACTICE</span><h3>STREAM Studio</h3><p>{text('面向遥感数字孪生与模拟实验的软件工具。访问项目仓库，了解功能、安装方式和使用文档；TIRT 与 LS4T 也可通过各自仓库获取。','Software for remote sensing digital twins and numerical experiments. Visit the repository for features, installation instructions, and documentation. TIRT and LS4T are also available in their respective repositories.')}</p></div><div class="software-links"><a class="button" href="stream.html">{text('软件案例','Software cases')}<span aria-hidden="true">↗</span></a><a class="button" href="https://github.com/bianzj/streamstudio">{text('访问软件仓库','Explore the repository')}<span aria-hidden="true">↗</span></a></div></div>
 </section>
 <section class="section" id="contact"><div class="contact-grid"><div><span class="eyebrow">CONTACT</span><h2>{text('交流与合作','Let’s connect')}</h2><p>{text('欢迎就热红外遥感、辐射传输、温度产品与遥感数字孪生交流。','For discussions on thermal infrared remote sensing, radiative transfer, temperature products, and remote sensing digital twins.')}</p></div><a class="email" href="mailto:{esc(data['email'])}">{esc(data['email'])}<span aria-hidden="true"> ↗</span></a></div></section>
 </main>

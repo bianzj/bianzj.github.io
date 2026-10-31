@@ -1,49 +1,11 @@
 {
-  "title": {"zh": "STREAM 案例", "en": "STREAM case studies"},
-  "intro": {"zh": "从地表温度空间模拟、不同地类精度验证，到卫星观测与在轨成像论证，展示 STREAM 在遥感数字孪生研究中的应用。", "en": "Explore STREAM applications in remote sensing digital twins, from spatial simulation of land surface temperature and evaluation across land cover types to satellite observation and imaging assessment."},
-  "cases": [
-    {
-      "id": "spatial",
-      "title": {"zh": "地表温度空间模拟", "en": "Spatial temperature simulation"},
-      "tag": {"zh": "地表过程 · 空间分布", "en": "Surface processes · Spatial patterns"},
-      "summary": {"zh": "以组分温度连接辐射传输与能量平衡过程，模拟复杂地表的温度空间分布，并与 Landsat 地表温度进行对比。", "en": "Component temperatures link radiative transfer and energy balance processes to simulate spatial temperature patterns over complex surfaces, with Landsat land surface temperature used for comparison."},
-      "steps": [
-        {"label": {"zh": "研究问题", "en": "Question"}, "text": {"zh": "如何在复杂地表场景中表征地表温度的空间差异？", "en": "How can spatial temperature differences be represented over complex land surfaces?"}},
-        {"label": {"zh": "模拟方法", "en": "Method"}, "text": {"zh": "耦合辐射传输与能量平衡过程，开展地表温度空间模拟。", "en": "Couple radiative transfer and energy balance processes to simulate spatial patterns in land surface temperature."}},
-        {"label": {"zh": "案例结果", "en": "Result"}, "text": {"zh": "并列展示 Landsat 与 STREAM 的地表温度分布，比较空间格局与局地变化。", "en": "Compare Landsat and STREAM temperature maps side by side to examine spatial patterns and local variations."}}
-      ],
-      "image": "twins-landsat-comparison.png",
-      "caption": {"zh": "Landsat 与 STREAM 地表温度空间对比", "en": "Spatial comparison of Landsat and STREAM land surface temperatures"},
-      "doi": "10.1016/j.jag.2025.104763"
-    },
-    {
-      "id": "evaluation",
-      "title": {"zh": "不同地类的模拟精度", "en": "Evaluation across land cover types"},
-      "tag": {"zh": "多地类 · 定量评估", "en": "Land cover · Quantitative evaluation"},
-      "summary": {"zh": "面向乔木林、灌丛、草地、耕地与裸地，比较 STREAM、ERA5 和 GLDAS 的温度偏差与均方根误差。", "en": "Compare temperature bias and root mean square error for STREAM, ERA5 and GLDAS over forest, shrubland, grassland, arable land and bare land."},
-      "steps": [
-        {"label": {"zh": "研究问题", "en": "Question"}, "text": {"zh": "不同地表类型下，温度模拟的偏差和误差有何差异？", "en": "How do temperature simulation bias and error vary across land cover types?"}},
-        {"label": {"zh": "评估方法", "en": "Method"}, "text": {"zh": "按地类分别统计 Bias 和 RMSE，并与 ERA5、GLDAS 进行对比。", "en": "Evaluate Bias and RMSE separately for each land cover type and compare STREAM with ERA5 and GLDAS."}},
-        {"label": {"zh": "案例结果", "en": "Result"}, "text": {"zh": "图示五类地表中，STREAM 的 RMSE 均低于 ERA5 和 GLDAS；各类地表的差异可在原图中查看。", "en": "In the five land cover types shown, STREAM has lower RMSE than ERA5 and GLDAS. The original figure provides the results for each type."}}
-      ],
-      "image": "twins-landcover-evaluation.png",
-      "caption": {"zh": "五类地表下 STREAM、ERA5 与 GLDAS 的 Bias 和 RMSE 对比", "en": "Bias and RMSE for STREAM, ERA5 and GLDAS across five land cover types"},
-      "doi": "10.1016/j.jag.2025.104763"
-    },
-    {
-      "id": "sensor",
-      "title": {"zh": "StreamSensor 卫星论证", "en": "StreamSensor mission assessment"},
-      "tag": {"zh": "观测几何 · 在轨成像", "en": "Observation geometry · Satellite imaging"},
-      "summary": {"zh": "耦合地表、大气、轨道与传感器要素，模拟卫星观测与成像过程，为热红外传感器波段和角度优选提供支持。", "en": "Couple surface, atmosphere, orbit and sensor elements to simulate satellite observations and imaging, supporting the assessment of thermal infrared spectral bands and viewing angles."},
-      "steps": [
-        {"label": {"zh": "应用需求", "en": "Application"}, "text": {"zh": "面向真实地表状况和典型应用，开展传感器指标优化仿真论证。", "en": "Assess sensor specifications through simulation under real surface conditions and representative applications."}},
-        {"label": {"zh": "系统流程", "en": "Workflow"}, "text": {"zh": "结合卫星轨道与观测几何、地表热辐射和大气辐射传输，模拟大气顶亮温。", "en": "Combine satellite orbit and observation geometry, surface thermal radiation and atmospheric radiative transfer to simulate top-of-atmosphere brightness temperature."}},
-        {"label": {"zh": "案例展示", "en": "Demonstration"}, "text": {"zh": "展示卫星配置、时空范围设置及观测覆盖模拟界面。", "en": "Explore the interface for satellite configuration, spatial and temporal settings, and simulated observation coverage."}}
-      ],
-      "image": "streamsensor-system.png",
-      "caption": {"zh": "StreamSensor 卫星配置与观测覆盖模拟界面", "en": "StreamSensor satellite configuration and observation coverage simulation interface"},
-      "secondary_image": "twins-schematic.png",
-      "secondary_caption": {"zh": "地表—大气—轨道—传感器耦合流程示意", "en": "Coupled surface, atmosphere, orbit and sensor processes"}
-    }
-  ]
+  "title": {
+    "zh": "STREAM Studio 软件案例",
+    "en": "STREAM Studio case studies"
+  },
+  "intro": {
+    "zh": "软件使用案例与操作示例。",
+    "en": "Software use cases and practical examples."
+  },
+  "cases": []
 }
