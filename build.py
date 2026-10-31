@@ -55,7 +55,7 @@ def research_figure(category):
     captions = {
         'modeling': ('植被结构与复杂场景建模', 'Modeling vegetation structure and complex scenes', 'modeling-schematic.png', 'TIRT 模型验证', 'TIRT model evaluation'),
         'retrieval': ('多信息协同组分温度反演', 'Component temperature retrieval with combined information', 'retrieval-schematic.png', '组分温度产品与验证', 'Component temperature products and evaluation'),
-        'twins': ('地表—大气—轨道—传感器耦合', 'Coupled surface, atmosphere, orbit and sensor', 'twins-schematic.png', 'StreamSensor 卫星论证系统', 'StreamSensor satellite mission assessment system'),
+        'twins': ('过程耦合与地表温度空间模拟', 'Process coupling and spatial simulation of land surface temperature', 'twins-schematic.png', 'StreamSensor 卫星论证系统', 'StreamSensor satellite mission assessment system'),
     }
     zh, en, image_file, result_zh, result_en = captions[category]
     schematic = research_image(image_file, zh, en)
@@ -70,9 +70,8 @@ def research_figure(category):
 <button type="button" role="tab" id="tab-terrain" aria-controls="result-terrain" aria-selected="false" tabindex="-1">{text('地形场景','Terrain')}</button></div>
 <div class="result-panel" id="result-vegetation" role="tabpanel" aria-labelledby="tab-vegetation">{research_image('modeling-validation.png','无人机测量、新模型与 MGP 模型对比','Comparison of UAV measurements, the new model and MGP')}<p class="image-caption">{text('无人机测量与模型模拟的方向性及误差对比','Directional patterns and errors: UAV measurements and model simulations')}</p></div>
 <div class="result-panel" id="result-terrain" role="tabpanel" aria-labelledby="tab-terrain">
-<div class="polar-pair"><figure>{research_image('modeling-flat-polar.png','不含地形的植被场景热辐射方向性','Thermal radiation directionality of vegetation without terrain')}<figcaption>{text('不含地形的植被场景','Vegetation without terrain')}</figcaption></figure><figure>{research_image('modeling-terrain-polar.png','植被与地形复合场景热辐射方向性','Thermal radiation directionality of coupled vegetation and terrain')}<figcaption>{text('植被 + 地形','Vegetation + terrain')}</figcaption></figure></div>
 {research_image('modeling-terrain-validation.png','山谷、山脊和山峰场景的模型误差对比','Model errors over valley, ridge and peak scenes')}
-<p class="image-caption">{text('地形角度效应与山谷、山脊、山峰场景验证；极坐标图各自保留原色标','Terrain angular effects and evaluation over valleys, ridges and peaks; each polar plot retains its original color scale')}</p></div></div>'''
+<p class="image-caption">{text('山谷、山脊、山峰场景的方向温度模拟误差对比','Directional temperature simulation errors over valley, ridge and peak scenes')}</p></div></div>'''
     elif category == 'retrieval':
         schematic = image_gallery('retrieval-method', [
             ('overview','方法示意','Method','retrieval-schematic.png','热点效应、多像元信息与温差约束','Hotspot effects, multipixel information and temperature difference constraints'),
@@ -84,12 +83,16 @@ def research_figure(category):
         ], 'Temperature products and evaluation')
     else:
         result_zh, result_en = 'StreamSensor 系统与模拟验证', 'StreamSensor system and simulation evaluation'
+        schematic = image_gallery('twins-method', [
+            ('process','耦合示意','Coupled processes','twins-schematic.png','地表—大气—轨道—传感器耦合示意','Coupled surface, atmosphere, orbit and sensor processes'),
+            ('landsat','空间对比','Spatial comparison','twins-landsat-comparison.png','Landsat 与 STREAM 地表温度空间对比','Spatial comparison of Landsat and STREAM land surface temperatures'),
+        ], 'Digital twin processes and spatial simulation')
         result = image_gallery('twins-result', [
             ('system','卫星论证','Mission assessment','streamsensor-system.png','StreamSensor 卫星轨道、观测几何与成像模拟界面','StreamSensor satellite orbit, observation geometry and imaging simulation interface'),
             ('landcover','分地类验证','Land cover','twins-landcover-evaluation.png','不同地类下 STREAM、ERA5 与 GLDAS 的 Bias 和 RMSE 对比','Bias and RMSE of STREAM, ERA5 and GLDAS across land cover types'),
-            ('landsat','空间对比','Spatial comparison','twins-landsat-comparison.png','Landsat 与 STREAM 地表温度空间对比','Spatial comparison of Landsat and STREAM land surface temperatures'),
         ], 'Digital twin system and evaluation')
-    return f'''<div class="research-visuals"><figure class="research-visual schematic"><figcaption>{text('机理示意','Method schematic')}<span>{text(zh,en)}</span></figcaption><div class="visual-image">{schematic}</div></figure><figure class="research-visual result"><figcaption>{text('研究成果','Research results')}<span>{text(result_zh,result_en)}</span></figcaption><div class="visual-image">{result}</div><p class="image-hint">{text('点击图片查看原图','Select an image to view the original')}</p></figure></div>'''
+    left_label = text('机理与模拟','Model & simulation') if category == 'twins' else text('机理示意','Method schematic')
+    return f'''<div class="research-visuals"><figure class="research-visual schematic"><figcaption>{left_label}<span>{text(zh,en)}</span></figcaption><div class="visual-image">{schematic}</div></figure><figure class="research-visual result"><figcaption>{text('研究成果','Research results')}<span>{text(result_zh,result_en)}</span></figcaption><div class="visual-image">{result}</div></figure><p class="image-hint">{text('点击图片查看原图','Select an image to view the original')}</p></div>'''
 
 research_groups = []
 for research in data['research']:
