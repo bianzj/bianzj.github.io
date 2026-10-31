@@ -20,3 +20,7 @@
 .profile-overview{padding:0 0 42px;scroll-margin-top:100px}.profile-overview p{font-size:14px;line-height:2;margin:0}.profile-overview p+p{margin-top:16px}
 @media(max-width:640px){.profile-overview{padding-bottom:30px}.profile-overview p{font-size:13px;line-height:1.95}}
 @media print{.profile-overview{padding-bottom:14px}.profile-overview p{font-size:10px;line-height:1.7}.profile-overview p+p{margin-top:8px}}
+
+.publication-panels>.paper-details+.paper-details{margin-top:22px}.patent-item{padding:20px 0;border-bottom:1px solid var(--line)}.patent-item:last-child{border-bottom:0}.patent-item h4{font-size:14px;line-height:1.8;margin:0 0 8px;font-weight:550}.patent-meta{display:flex;flex-wrap:wrap;gap:6px 22px;font-size:11px;color:var(--muted)}
+@media(max-width:640px){.patent-item h4{font-size:13px}.patent-meta{font-size:10px;gap:4px 12px}}
+@media print{.patent-item{padding:10px 0;break-inside:avoid}.patent-item h4{font-size:11px;margin-bottom:3px}.patent-meta{font-size:9px}}

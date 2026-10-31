@@ -587,55 +587,64 @@
         "number": "ZL202011021682.6",
         "title": "一种小面元黑体扩束定标方法及系统",
         "inventor_rank": 5,
-        "grant_date": "2021-06-15"
+        "grant_date": "2021-06-15",
+        "title_en": "A method and system for expanded-beam calibration using a small-area blackbody"
       },
       {
         "number": "ZL202011096826.4",
         "title": "一种离散森林场景热红外辐射传输模拟方法",
         "inventor_rank": 1,
-        "grant_date": "2021-04-27"
+        "grant_date": "2021-04-27",
+        "title_en": "A method for simulating thermal infrared radiative transfer in discrete forest scenes"
       },
       {
         "number": "ZL202011096827.9",
         "title": "基于贝叶斯模型平均方法的地表组分温度多算法集成算法",
         "inventor_rank": 1,
-        "grant_date": "2021-05-11"
+        "grant_date": "2021-05-11",
+        "title_en": "A multi-algorithm ensemble method for land surface component temperature retrieval based on Bayesian model averaging"
       },
       {
         "number": "ZL202011096835.3",
         "title": "一种高精度的热辐射方向性半经验半物理模拟方法",
         "inventor_rank": 3,
-        "grant_date": "2021-09-10"
+        "grant_date": "2021-09-10",
+        "title_en": "A high-accuracy semi-empirical, semi-physical method for modeling thermal radiation directionality"
       },
       {
         "number": "ZL202110096330.5",
         "title": "纠正静止卫星地表上行长波辐射产品热辐射方向性的方法",
         "inventor_rank": 4,
-        "grant_date": "2021-09-24"
+        "grant_date": "2021-09-24",
+        "title_en": "A method for correcting thermal radiation directionality in geostationary satellite surface upwelling longwave radiation products"
       },
       {
         "number": "ZL202110107797.5",
         "title": "基于辐射度的地表高分辨率光谱信息遥感反演方法",
         "inventor_rank": 1,
-        "grant_date": "2021-09-24"
+        "grant_date": "2021-09-24",
+        "title_en": "A radiance-based remote sensing method for retrieving high-resolution land surface spectral information"
       },
       {
         "number": "ZL202110794684.7",
         "title": "一种三维复杂地表遥感光学特征反演方法及系统",
         "inventor_rank": 1,
-        "grant_date": "2023-12-29"
+        "grant_date": "2023-12-29",
+        "title_en": "A method and system for retrieving optical remote sensing characteristics of three-dimensional complex land surfaces"
       },
       {
         "number": "ZL202110796019.1",
         "title": "一种三维复杂地表叶面积指数反演方法及系统",
         "inventor_rank": 1,
-        "grant_date": "2023-12-29"
+        "grant_date": "2023-12-29",
+        "title_en": "A method and system for retrieving leaf area index of three-dimensional complex land surfaces"
       },
       {
         "number": "ZL202310303034.7",
         "title": "地表温度产品的真实性检验方法、装置及电子设备",
         "inventor_rank": 3,
-        "grant_date": "2026-02-24"
+        "grant_date": "2026-02-24",
+        "title_en": "A method, apparatus and electronic device for validating land surface temperature products"
       }
     ],
     "overview": {

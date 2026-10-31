@@ -22,6 +22,15 @@ def heading(number, zh, en, note=''):
 def timeline(items):
     return '<div class="timeline">' + ''.join(f'<article class="timeline-item"><div class="date">{esc(i["date"])}</div><h3>{bi(i["title"])}</h3><div class="place">{bi(i["place"])}</div></article>' for i in items) + '</div>'
 
+def render_paper(p):
+    authors = esc(p['authors']).replace('Bian, Z.', '<strong>Bian, Z.</strong>')
+    title = bi({'zh': p['title_zh'], 'en': p['title']}) if p.get('title_zh') else esc(p['title'])
+    journal = bi({'zh': p['journal_zh'], 'en': p['journal']}) if p.get('journal_zh') else esc(p['journal'])
+    if p.get('authors_zh'):
+        authors_zh = esc(p['authors_zh']).replace('卞尊健', '<strong>卞尊健</strong>')
+        authors = f'<span class="zh">{authors_zh}</span><span class="en" lang="en">{authors}</span>'
+    return f'''<article class="pub" data-category="{esc(p['category'])}"><div class="pub-year">{esc(p['year'])}</div><div><h4><a href="https://doi.org/{esc(p['doi'])}">{title}</a></h4><div class="pub-authors">{authors}</div><div class="pub-journal"><em>{journal}</em> · {esc(p['details'])}</div></div><a class="pub-link" href="https://doi.org/{esc(p['doi'])}" aria-label="DOI: {esc(p['title'])}">↗</a></article>'''
+
 def model_emphasis(value):
     result = bi(value)
     for model in ['TIRT', 'STREAM']:
@@ -107,6 +116,18 @@ honors = ''.join(f'<div class="honor"><time>{esc(p["year"])}</time><span>{bi(p["
 committees = ''.join(f'<article class="project service-item"><h3>{bi(item["title"])}</h3><div class="place">{bi(item["organization"])}</div></article>' for item in data['academic_service']['committees'])
 conferences = ''.join(f'<article class="project service-item"><h3>{bi(item["title"])}</h3><div class="place">{bi(item["detail"])}</div></article>' for item in data['academic_service']['conferences'])
 research_nav = ''.join(f'<a href="#research-{esc(r["category"])}">{bi(r["title"])}</a>' for r in data['research'])
+def publication_details(zh, en, count, content):
+    return f'''<details class="paper-details"><summary class="group-paper-heading"><span>{text(zh,en)}</span><span class="paper-fold-meta"><span class="section-note">{count}</span><span class="fold-label fold-closed">{text('展开','Show')}</span><span class="fold-label fold-open">{text('收起','Hide')}</span><span class="fold-icon" aria-hidden="true"></span></span></summary><div>{content}</div></details>'''
+
+papers = ''.join(render_paper(p) for p in sorted(data['publications'], key=lambda p: p['year'], reverse=True))
+patent_items = []
+for p in sorted(data['achievements']['patents'], key=lambda p: p['grant_date'], reverse=True):
+    rank = p['inventor_rank']
+    inventor = text('第一发明人' if rank == 1 else f'第{rank}发明人', 'First inventor' if rank == 1 else f'Inventor order: {rank}')
+    patent_items.append(f'''<article class="patent-item"><h4>{bi({'zh':p['title'],'en':p['title_en']})}</h4><div class="patent-meta"><span>{esc(p['number'])}</span><span>{text('授权日期','Granted')}: {esc(p['grant_date'])}</span><span>{inventor}</span></div></article>''')
+publications_panel = publication_details('代表性论文', 'Selected publications', text(f"{len(data['publications'])} 篇", f"{len(data['publications'])} papers"), papers)
+patents_panel = publication_details('授权发明专利', 'Granted invention patents', text(f"{len(patent_items)} 项", f"{len(patent_items)} patents"), ''.join(patent_items))
+
 page = f'''<!doctype html>
 <html lang="zh-CN">
 <head>
@@ -130,6 +151,7 @@ page = f'''<!doctype html>
 <a class="brand" href="#main">Zunjian Bian<span>ACADEMIC PROFILE</span></a>
 <nav class="nav-links" aria-label="Main navigation">
 <a href="#research">{text('研究方向','Research')}</a>
+<a class="desktop-link" href="#publications">{text('论文与专利','Publications')}</a>
 <a href="#cv">{text('简历','CV')}</a>
 <a class="desktop-link" href="#service">{text('学术服务','Service')}</a>
 <a class="desktop-link" href="#software">{text('软件','Software')}</a>
@@ -156,26 +178,29 @@ page = f'''<!doctype html>
 <div class="profile-overview" id="achievements"><p>{bi(data['achievements']['overview'])}</p><p>{bi(data['project_overview'])}</p></div>
 <div class="topic-line" aria-label="Research interests"><span>{text('辐射建模','RADIATIVE TRANSFER MODELING')}</span><span>{text('温度反演','TEMPERATURE RETRIEVAL')}</span><span>{text('数字孪生','DIGITAL TWINS')}</span></div>
 <section class="section" id="research">
-<span id="publications"></span>
 {heading('01','研究方向','Research')}
 <nav class="research-nav" aria-label="Research areas">{research_nav}</nav>
 {''.join(research_groups)}
 
 </section>
+<section class="section" id="publications">
+{heading('02','代表性论文与专利','Selected publications & patents')}
+<div class="publication-panels">{publications_panel}{patents_panel}</div>
+</section>
 <section class="section" id="cv">
-{heading('02','教育与工作经历','Experience & education')}
+{heading('03','教育与工作经历','Experience & education')}
 <div class="cv-grid"><div><h3 class="subheading">{text('工作经历','Appointments')}</h3>{timeline(data['experience'])}</div><div><h3 class="subheading">{text('教育经历','Education')}</h3>{timeline(data['education'])}</div></div>
 </section>
 <section class="section" id="projects">
-{heading('03','科研项目与荣誉','Projects & recognition')}
+{heading('04','科研项目与荣誉','Projects & recognition')}
 <div class="lower-grid"><div><h3 class="subheading">{text('代表项目','Selected projects')}</h3>{projects}</div><div><h3 class="subheading">{text('人才计划与荣誉','Programs & honors')}</h3>{honors}</div></div>
 </section>
 <section class="section" id="service">
-{heading('04','学术服务','Academic service')}
+{heading('05','学术服务','Academic service')}
 <div class="cv-grid"><div><h3 class="subheading">{text('学术任职','Committee memberships')}</h3>{committees}</div><div><h3 class="subheading">{text('会议组织','Conference organization')}</h3>{conferences}</div></div>
 </section>
 <section class="section" id="software">
-{heading('05','科研软件','Research software')}
+{heading('06','科研软件','Research software')}
 <div class="software"><div><span class="eyebrow">MODELS INTO PRACTICE</span><h3>STREAM Studio</h3><p>{text('面向遥感数字孪生与模拟实验的软件工具。访问项目仓库，了解功能、安装方式和使用文档；TIRT 与 LS4T 也可通过各自仓库获取。','Software for remote sensing digital twins and numerical experiments. Visit the repository for features, installation instructions, and documentation. TIRT and LS4T are also available in their respective repositories.')}</p></div><a class="button" href="https://github.com/bianzj/streamstudio">{text('访问软件仓库','Explore the repository')}<span aria-hidden="true">↗</span></a></div>
 </section>
 <section class="section" id="contact"><div class="contact-grid"><div><span class="eyebrow">CONTACT</span><h2>{text('交流与合作','Let’s connect')}</h2><p>{text('欢迎就热红外遥感、辐射传输、温度产品与遥感数字孪生交流。','For discussions on thermal infrared remote sensing, radiative transfer, temperature products, and remote sensing digital twins.')}</p></div><a class="email" href="mailto:{esc(data['email'])}">{esc(data['email'])}<span aria-hidden="true"> ↗</span></a></div></section>

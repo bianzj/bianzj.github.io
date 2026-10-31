@@ -37,14 +37,19 @@
     select(tabs[0]);
   });
   let printExpanded = false;
+  let detailsBeforePrint = [];
   let panelsBeforePrint = [];
   window.addEventListener('beforeprint', () => {
     if (printExpanded) return;
     printExpanded = true;
+    detailsBeforePrint = Array.from(document.querySelectorAll('.paper-details'), element => ({element, open:element.open}));
+    detailsBeforePrint.forEach(({element}) => { element.open = true; });
     panelsBeforePrint = Array.from(document.querySelectorAll('.result-panel'), element => ({element, hidden:element.hidden}));
     panelsBeforePrint.forEach(({element}) => { element.hidden = false; });
   });
   window.addEventListener('afterprint', () => {
+    detailsBeforePrint.forEach(({element, open}) => { element.open = open; });
+    detailsBeforePrint = [];
     panelsBeforePrint.forEach(({element, hidden}) => { element.hidden = hidden; });
     printExpanded = false;
     panelsBeforePrint = [];
