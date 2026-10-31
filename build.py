@@ -26,10 +26,15 @@ cards = ''.join(f'''<article class="research-card"><a class="research-top" href=
 papers = []
 for p in data['publications']:
     authors = esc(p['authors']).replace('Bian, Z.', '<strong>Bian, Z.</strong>')
-    papers.append(f'''<article class="pub" data-category="{esc(p['category'])}"><div class="pub-year">{esc(p['year'])}</div><div><h3><a href="https://doi.org/{esc(p['doi'])}">{esc(p['title'])}</a></h3><div class="pub-authors">{authors}</div><div class="pub-journal"><em>{esc(p['journal'])}</em> · {esc(p['details'])}</div></div><a class="pub-link" href="https://doi.org/{esc(p['doi'])}" aria-label="DOI: {esc(p['title'])}">↗</a></article>''')
+    title = bi({'zh': p['title_zh'], 'en': p['title']}) if p.get('title_zh') else esc(p['title'])
+    journal = bi({'zh': p['journal_zh'], 'en': p['journal']}) if p.get('journal_zh') else esc(p['journal'])
+    if p.get('authors_zh'):
+        authors_zh = esc(p['authors_zh']).replace('卞尊健', '<strong>卞尊健</strong>')
+        authors = f'<span class="zh">{authors_zh}</span><span class="en" lang="en">{authors}</span>'
+    papers.append(f'''<article class="pub" data-category="{esc(p['category'])}"><div class="pub-year">{esc(p['year'])}</div><div><h3><a href="https://doi.org/{esc(p['doi'])}">{title}</a></h3><div class="pub-authors">{authors}</div><div class="pub-journal"><em>{journal}</em> · {esc(p['details'])}</div></div><a class="pub-link" href="https://doi.org/{esc(p['doi'])}" aria-label="DOI: {esc(p['title'])}">↗</a></article>''')
 projects = ''.join(f'<article class="project"><div class="date">{esc(p["date"])}</div><h3>{bi(p["title"])}</h3><div class="place">{bi(p["funder"])}</div></article>' for p in data['projects'])
 honors = ''.join(f'<div class="honor"><time>{esc(p["year"])}</time><span>{bi(p["title"])}</span></div>' for p in data['honors'])
-filters = ''.join(f'<button class="filter" type="button" data-filter="{key}" aria-pressed="{str(key=="all").lower()}">{text(zh,en)}</button>' for key,zh,en in [('all','全部','All'),('modeling','辐射建模','Modeling'),('retrieval','温度反演','Retrieval'),('application','校正与应用','Correction & applications')])
+filters = ''.join(f'<button class="filter" type="button" data-filter="{key}" aria-pressed="{str(key=="all").lower()}">{text(zh,en)}</button>' for key,zh,en in [('all','全部','All'),('modeling','辐射建模','Modeling'),('retrieval','温度反演','Retrieval'),('twins','数字孪生','Digital twins')])
 
 page = f'''<!doctype html>
 <html lang="zh-CN">
