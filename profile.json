@@ -168,6 +168,17 @@
   ],
   "projects": [
     {
+      "date": "2025 — 2026",
+      "title": {
+        "zh": "复杂地表高分辨率高光谱数据仿真模块",
+        "en": "High-resolution hyperspectral data simulation module for complex land surfaces"
+      },
+      "funder": {
+        "zh": "",
+        "en": ""
+      }
+    },
+    {
       "date": "2024 — 2027",
       "title": {
         "zh": "北京市科技新星项目",
