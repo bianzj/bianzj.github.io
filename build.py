@@ -43,10 +43,18 @@ def research_image(filename, zh, en):
     width, height = unpack('>II', (ROOT / path).read_bytes()[16:24])
     return f'<a class="research-image-link" href="{path}" target="_blank" rel="noopener" aria-label="{esc(en)}"><img src="{path}" alt="{esc(zh + " / " + en)}" width="{width}" height="{height}" loading="lazy"></a>'
 
+def image_gallery(prefix, items, label):
+    tabs, panels = [], []
+    for i, (key, zh, en, filename, caption_zh, caption_en) in enumerate(items):
+        tab_id, panel_id = f'tab-{prefix}-{key}', f'result-{prefix}-{key}'
+        tabs.append(f'<button type="button" role="tab" id="{tab_id}" aria-controls="{panel_id}" aria-selected="{str(i == 0).lower()}" tabindex="{0 if i == 0 else -1}">{text(zh,en)}</button>')
+        panels.append(f'<div class="result-panel" id="{panel_id}" role="tabpanel" aria-labelledby="{tab_id}">{research_image(filename,caption_zh,caption_en)}<p class="image-caption">{text(caption_zh,caption_en)}</p></div>')
+    return f'<div class="result-gallery" data-gallery><div class="result-tabs" role="tablist" aria-label="{esc(label)}">{"".join(tabs)}</div>{"".join(panels)}</div>'
+
 def research_figure(category):
     captions = {
         'modeling': ('复杂场景与尺度嵌套分解', 'Complex scenes and scale decomposition', 'modeling-schematic.png', 'TIRT 模型验证', 'TIRT model evaluation'),
-        'retrieval': ('多信息协同组分温度反演', 'Component temperature retrieval with combined information', 'retrieval-schematic.png', 'AATSR · SLSTR · MSG 组分温度产品', 'AATSR · SLSTR · MSG component temperature products'),
+        'retrieval': ('多信息协同组分温度反演', 'Component temperature retrieval with combined information', 'retrieval-schematic.png', '组分温度产品与验证', 'Component temperature products and evaluation'),
         'twins': ('地表—大气—轨道—传感器耦合', 'Coupled surface, atmosphere, orbit and sensor', 'twins-schematic.png', 'StreamSensor 卫星论证系统', 'StreamSensor satellite mission assessment system'),
     }
     zh, en, image_file, result_zh, result_en = captions[category]
@@ -62,7 +70,15 @@ def research_figure(category):
 {research_image('modeling-terrain-validation.png','山谷、山脊和山峰场景的模型误差对比','Model errors over valley, ridge and peak scenes')}
 <p class="image-caption">{text('地形角度效应与山谷、山脊、山峰场景验证；极坐标图各自保留原色标','Terrain angular effects and evaluation over valleys, ridges and peaks; each polar plot retains its original color scale')}</p></div></div>'''
     elif category == 'retrieval':
-        result = research_image('retrieval-products.png', result_zh, result_en) + f'<p class="image-caption">{text("全球与区域植被、土壤组分温度产品", "Global and regional vegetation and soil temperature products")}</p>'
+        schematic = image_gallery('retrieval-method', [
+            ('overview','方法示意','Method','retrieval-schematic.png','热点效应、多像元信息与温差约束','Hotspot effects, multipixel information and temperature difference constraints'),
+            ('hotspot','热点效应','Hotspot','retrieval-hotspot-evaluation.png','热点效应及不同角度距离下的组分温度反演误差','Hotspot effects and component temperature retrieval errors at different angular distances'),
+            ('thermal','热成像','Thermal image','retrieval-thermal-observation.png','地表热成像与热辐射角度变化示例','Surface thermal imagery and angular variations in thermal radiation'),
+        ], 'Retrieval methods and observations')
+        result = image_gallery('retrieval-result', [
+            ('products','温度产品','Products','retrieval-products.png','AATSR、SLSTR、MSG 全球与区域组分温度产品','Global and regional component temperature products from AATSR, SLSTR and MSG'),
+            ('validation','精度验证','Evaluation','retrieval-component-validation.png','土壤与植被组分温度验证及与平均温度的对比','Evaluation of soil and vegetation component temperatures and comparison with mean temperatures'),
+        ], 'Temperature products and evaluation')
     else:
         result = research_image('streamsensor-system.png', result_zh, result_en) + f'<p class="image-caption">{text("卫星轨道、观测几何与成像模拟界面", "Satellite orbit, observation geometry and imaging simulation interface")}</p>'
     return f'''<div class="research-visuals"><figure class="research-visual schematic"><figcaption>{text('机理示意','Method schematic')}<span>{text(zh,en)}</span></figcaption><div class="visual-image">{schematic}</div></figure><figure class="research-visual result"><figcaption>{text('研究成果','Research results')}<span>{text(result_zh,result_en)}</span></figcaption><div class="visual-image">{result}</div><p class="image-hint">{text('点击图片查看原图','Select an image to view the original')}</p></figure></div>'''
