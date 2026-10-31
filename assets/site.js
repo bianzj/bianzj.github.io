@@ -3,7 +3,9 @@
   const toggle = document.querySelector('#language-toggle');
   function setLanguage(language) {
     root.lang = language === 'en' ? 'en' : 'zh-CN';
-    document.title = root.lang === 'en' ? 'Zunjian Bian | Thermal Infrared Remote Sensing' : '卞尊健 | 热红外遥感';
+    document.title = root.lang === 'en'
+      ? (document.body.dataset.titleEn || 'Zunjian Bian | Thermal Infrared Remote Sensing')
+      : (document.body.dataset.titleZh || '卞尊健 | 热红外遥感');
     toggle.textContent = root.lang === 'en' ? '中文' : 'EN';
     toggle.setAttribute('aria-label', root.lang === 'en' ? '切换为中文' : 'Switch to English');
     try { localStorage.setItem('cv-language', root.lang); } catch (_) {}
@@ -54,5 +56,5 @@
     printExpanded = false;
     panelsBeforePrint = [];
   });
-  document.querySelector('#print-cv').addEventListener('click', () => window.print());
+  document.querySelector('#print-cv')?.addEventListener('click', () => window.print());
 })();

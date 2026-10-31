@@ -150,6 +150,7 @@ page = f'''<!doctype html>
 <header class="header"><div class="wrap nav">
 <a class="brand" href="#main">Zunjian Bian<span>ACADEMIC PROFILE</span></a>
 <nav class="nav-links" aria-label="Main navigation">
+<a class="desktop-link" href="stream.html">{text('STREAM 案例','STREAM cases')}</a>
 <a href="#research">{text('研究方向','Research')}</a>
 <a class="desktop-link" href="#publications">{text('论文与专利','Publications')}</a>
 <a href="#cv">{text('简历','CV')}</a>
@@ -168,6 +169,7 @@ page = f'''<!doctype html>
 <p class="intro">{bi(data['intro'])}</p>
 <div class="actions">
 <a class="button primary" href="mailto:{esc(data['email'])}">{text('邮件联系','Get in touch')}<span aria-hidden="true">↗</span></a>
+<a class="button" href="stream.html">{text('STREAM 案例','STREAM cases')}<span aria-hidden="true">↗</span></a>
 <a class="button" href="{esc(data['github'])}">GitHub<span aria-hidden="true">↗</span></a>
 <button class="button" type="button" id="print-cv">{text('打印简历','Print CV')}<span aria-hidden="true">↓</span></button>
 </div>
@@ -209,4 +211,6 @@ page = f'''<!doctype html>
 </body></html>
 '''
 (ROOT / 'index.html').write_text(page, encoding='utf-8')
-print('Built index.html: bilingual profile, opening achievement and project summaries, three research areas.')
+from build_cases import build_cases
+build_cases(data, bi, text, heading, research_image)
+print('Built index.html and stream.html: bilingual profile and STREAM case studies.')
