@@ -4,8 +4,125 @@
     "en": "STREAM Studio case studies"
   },
   "intro": {
-    "zh": "软件使用案例与操作示例。",
-    "en": "Software use cases and practical examples."
+    "zh": "从三维场景到叶片面元，展示作物的受光、温度与能量分配。首个案例以玉米为对象，呈现多阶段株型对照与生理参数响应。",
+    "en": "From 3D scenes to individual leaf facets, explore crop light, temperature and energy partitioning. The first case uses maize to compare growth-stage geometries and physiological parameter responses."
   },
-  "cases": []
+  "cases": [
+    {
+      "id": "maize-light-heat",
+      "number": "001",
+      "title": {
+        "zh": "STREAM案例 | 作物光热转换的物理桥梁",
+        "en": "STREAM case | Linking crop light and heat through physics"
+      },
+      "tag": {
+        "zh": "玉米 · 场景1—4 · 面元光热模拟",
+        "en": "Maize · Scenes 1–4 · Facet-scale light and heat simulation"
+      },
+      "summary": {
+        "zh": "把一片玉米田搬进电脑，从整片田看到每个叶片面元。StreamStudio将三维作物结构、辐射传输与能量平衡联系起来，展现叶片受光、温度以及感热和潜热的空间差异。多阶段株型与时间驱动计算相结合，为组织全生长季作物模拟提供基础。",
+        "en": "Bring a maize field into a 3D scene and trace its behavior down to individual leaf facets. StreamStudio links crop structure, radiative transfer and energy balance to reveal spatial differences in light, temperature, sensible heat and latent heat. Multiple growth-stage geometries and time-dependent forcing provide a basis for organizing full-season simulations."
+      },
+      "steps": [
+        {
+          "label": {
+            "zh": "场景构建",
+            "en": "Scene setup"
+          },
+          "text": {
+            "zh": "场景1—4采用从幼苗到成株的四种玉米株型，原始株高约0.39、0.66、1.25、1.97米。每个场景为8行×每行9株，共72株；范围5.2×3.0米，行距0.60米、株距0.25米，土壤网格目标尺度0.25米。",
+            "en": "Scenes 1–4 use four maize geometries with native heights of approximately 0.39, 0.66, 1.25 and 1.97 m. Each scene contains 72 plants in 8 rows of 9, over 5.2 × 3.0 m, with 0.60 m between rows, 0.25 m between plants and a target soil grid size of 0.25 m."
+          }
+        },
+        {
+          "label": {
+            "zh": "面元结果",
+            "en": "Facet-level outputs"
+          },
+          "text": {
+            "zh": "使用面元能量平衡 eFacetEB，提取中央3×3株的温度、光合有效辐射PAR、感热H和潜热LE，并按0.10米高度分层计算面积加权剖面。图示为DOY214 12:20；PAR为双面入射PPFD之和，H和LE按单面几何叶面积计。",
+            "en": "The eFacetEB solver provides temperature, PAR, sensible heat H and latent heat LE for the central 3 × 3 plants. Vertical profiles use 0.10 m bins and facet-area weighting. Figures show DOY 214 at 12:20. PAR sums incident PPFD on both sides; H and LE are expressed per unit one-sided geometric leaf area."
+          }
+        },
+        {
+          "label": {
+            "zh": "光热垂直差异",
+            "en": "Vertical light and temperature gradients"
+          },
+          "text": {
+            "zh": "场景4中，低于0.7米的面元平均叶温为26.55℃，1.4米及以上为32.51℃；平均PAR由142增至601 μmol m⁻² s⁻¹。上层整体受光更强、温度更高，局部起伏反映叶片倾角、遮挡和能量交换的共同作用。",
+            "en": "In scene 4, area-weighted leaf temperature rises from 26.55 °C below 0.7 m to 32.51 °C at or above 1.4 m. Mean PAR rises from 142 to 601 μmol m⁻² s⁻¹. Local variation reflects leaf orientation, shading and energy exchange."
+          }
+        },
+        {
+          "label": {
+            "zh": "Vcmax响应",
+            "en": "Response to Vcmax"
+          },
+          "text": {
+            "zh": "对比Vcmax=20、40、60，仅保留基准Vcmax=60中PAR为600—1800 μmol m⁻² s⁻¹的同一组1053个面元。Vcmax从20增至60时，该组面积加权平均叶温降低2.03℃，潜热增加19.98 W m⁻²，感热减少4.78 W m⁻²；统计仅代表筛选面元。",
+            "en": "For Vcmax values of 20, 40 and 60, compare the same 1,053 facets selected using baseline Vcmax=60 PAR between 600 and 1,800 μmol m⁻² s⁻¹. Increasing Vcmax from 20 to 60 lowers area-weighted leaf temperature by 2.03 °C, raises latent heat by 19.98 W m⁻² and reduces sensible heat by 4.78 W m⁻². These statistics apply only to the selected facets."
+          }
+        },
+        {
+          "label": {
+            "zh": "结果范围",
+            "en": "Scope of the results"
+          },
+          "text": {
+            "zh": "四个场景在相同气象和生理参数下对照，每个场景计算24个时刻；三档Vcmax也各有24个时刻。既有记录均满足能量残差绝对值不小于2 W m⁻²的面元占比小于0.1%。当前尚非逐日连续全生长季计算，也未进行独立观测验证。叶温由全波段辐射及感热、潜热等共同决定，图示不代表PAR直接转化为热量的效率。",
+            "en": "Each geometry and Vcmax scenario has 24 time steps. Recorded runs satisfy the energy-balance criterion: fewer than 0.1% of facets have an absolute residual of at least 2 W m⁻². This is not a continuous day-by-day full-season simulation, and the maize case has not been independently validated against observations. Leaf temperature responds to full-spectrum radiation and heat fluxes; the figures do not measure a direct PAR-to-heat conversion efficiency."
+          }
+        }
+      ],
+      "image": "maize/streamstudio-scene-raw.png",
+      "caption": {
+        "zh": "软件场景：StreamStudio中的72株成行玉米，展示整片田的结构与空间遮挡。",
+        "en": "Software scene: 72 maize plants arranged in rows in StreamStudio."
+      },
+      "secondary_image": "maize/growth-scenes.png",
+      "secondary_caption": {
+        "zh": "场景1—4：四种玉米株型共用空间比例，比较从幼苗到成株的结构变化。",
+        "en": "Scenes 1–4: maize geometries from seedling to mature plant, shown at a common spatial scale."
+      },
+      "additional_images": [
+        {
+          "image": "maize/fields.png",
+          "caption": {
+            "zh": "场景4中央九株的面元温度、PAR、感热H和潜热LE分布；各变量采用独立色标。",
+            "en": "Facet temperature, PAR, sensible heat H and latent heat LE for the central nine plants in scene 4; each variable has its own color scale."
+          }
+        },
+        {
+          "image": "maize/vertical-profiles.png",
+          "caption": {
+            "zh": "光热垂直剖面：按0.10米分层，以面元面积加权。仅绘制面积占该组九株总面积至少0.1%的高度层。",
+            "en": "Vertical profiles in 0.10 m bins, weighted by facet area. Only bins representing at least 0.1% of the central nine plants’ facet area are shown."
+          }
+        },
+        {
+          "image": "maize/vcmax-distribution-600-1800.png",
+          "caption": {
+            "zh": "Vcmax=20、40、60的面元散点分布；共用基准PAR为600—1800 μmol m⁻² s⁻¹的面元编号，区间含两端点。",
+            "en": "Facet distributions at Vcmax=20, 40 and 60, using matched facets with baseline PAR from 600 to 1,800 μmol m⁻² s⁻¹, inclusive."
+          }
+        }
+      ],
+      "references": [
+        {
+          "citation": "Fan, T., Bian, Z., et al. (2025). STREAM: a system for tracing radiative transfer and energy balance in heterogeneous surfaces. International Journal of Applied Earth Observation and Geoinformation, 142, 104763.",
+          "doi": "10.1016/j.jag.2025.104763"
+        },
+        {
+          "citation": "Zhong, S., Bian, Z., et al. (2026). A global system for monitoring radiative transfer and directional temperatures over heterogeneous surfaces. Remote Sensing of Environment, 346, 115635.",
+          "doi": "10.1016/j.rse.2026.115635"
+        }
+      ],
+      "reference_note": {
+        "zh": "命名说明：JAG原论文题名使用STREAM，后续RSE论文称该三维场景模型为Hi-Stream。论文中的验证不等同于本次玉米案例已经完成独立观测验证。",
+        "en": "Naming: the JAG paper uses STREAM in its title; the later RSE paper refers to that 3D scene model as Hi-Stream. Validation reported in these papers does not constitute independent observational validation of this maize case."
+      },
+      "document": "assets/documents/streamstudio-case-library.docx"
+    }
+  ]
 }

@@ -4,7 +4,9 @@
 
 ## STREAM Studio 软件案例页
 
-独立页面 `stream.html` 预留用于 STREAM Studio 软件使用案例，当前暂不填入具体案例。主页导航、简介按钮和科研软件板块均提供跳转入口；两页共享中英文选择。页面配置位于 `stream_cases.json`，由 `build_cases.py` 生成，运行 `python3 build.py` 会同时更新两个页面。
+独立页面 `stream.html` 展示 STREAM Studio 软件案例。案例001为“STREAM案例 | 作物光热转换的物理桥梁”，展示玉米场景1—4、中央九株的温度/PAR/H/LE、光热垂直剖面及Vcmax响应，包含五张实际模拟图、JAG与RSE论文链接及案例库Word下载。该案例为数值模拟，尚非逐日连续全生长季计算，也未进行独立观测验证。主页导航、简介按钮和科研软件板块均提供跳转入口；两页共享中英文选择。页面配置位于 `stream_cases.json`，由 `build_cases.py` 生成，运行 `python3 build.py` 会同时更新两个页面。
+
+案例图片位于 `assets/research/maize/`，文档位于 `assets/documents/streamstudio-case-library.docx`。后续案例按002、003续编；在 `stream_cases.json` 中维护编号、双语说明、图片、论文及文档链接。
 
 ## 更新内容
 

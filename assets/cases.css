@@ -4,3 +4,4 @@
 @media print{.case-hero{padding:0 0 15px}.case-hero h1{font-size:30px}.case-hero>p,.case-summary{font-size:11px}.case-index,.case-access,.case-original-note{display:none}.case-layout{display:block}.case-copy dl{display:block}.case-copy dl>div{padding:0 0 6px;margin:0 0 6px;border:0}.case-copy dt,.case-copy dd{font-size:10px}.case-figure{max-width:140mm;margin:12px auto;break-inside:avoid}.case-figure figcaption{font-size:9px}}
 
 .case-placeholder{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:46px 0 65px;min-height:190px}.case-placeholder p{font-size:14px;line-height:1.9;color:var(--muted);margin:0}.cases-page main{min-height:calc(100vh - 160px)}
+.case-index{grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr))}.case-reference{font-size:12px;line-height:1.8;color:var(--muted);overflow-wrap:anywhere}.case-download{margin:0 0 30px}.case-section{scroll-margin-top:100px}
