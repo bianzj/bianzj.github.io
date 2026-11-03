@@ -4,8 +4,8 @@
     "en": "STREAM Studio case studies"
   },
   "intro": {
-    "zh": "从三维场景到叶片面元，展示作物的受光、温度与能量分配。首个案例以玉米为对象，呈现多阶段株型对照与生理参数响应。",
-    "en": "From 3D scenes to individual leaf facets, explore crop light, temperature and energy partitioning. The first case uses maize to compare growth-stage geometries and physiological parameter responses."
+    "zh": "从玉米田到热带雨林，将三维植被结构、辐射传输与能量平衡联系起来，探索光照和温度随空间、时间及参数的变化。",
+    "en": "From maize fields to tropical rainforests, connect 3D vegetation structure, radiative transfer and energy balance to explore how light and temperature vary across space, time and model parameters."
   },
   "cases": [
     {
@@ -121,6 +121,115 @@
       "reference_note": {
         "zh": "命名说明：JAG原论文题名使用STREAM，后续RSE论文称该三维场景模型为Hi-Stream。论文中的验证不等同于本次玉米案例已经完成独立观测验证。",
         "en": "Naming: the JAG paper uses STREAM in its title; the later RSE paper refers to that 3D scene model as Hi-Stream. Validation reported in these papers does not constitute independent observational validation of this maize case."
+      },
+      "document": "assets/documents/streamstudio-case-library.docx"
+    },
+    {
+      "id": "rainforest-light-heat",
+      "number": "002",
+      "title": {
+        "zh": "STREAM案例 | 穿透树冠，从上到下读懂雨林的光与热",
+        "en": "STREAM case | Through the canopy: reading rainforest light and heat from top to bottom"
+      },
+      "tag": {
+        "zh": "热带雨林 · 七类植被 · 多波段与全天叶温",
+        "en": "Tropical rainforest · Seven vegetation types · Multiband reflectance and diurnal leaf temperature"
+      },
+      "summary": {
+        "zh": "阳光落在树冠上，也沿着枝叶间隙进入林下。这个案例用STREAMSTUDIO将高大乔木、层叠叶冠和低矮灌木放进同一片三维雨林，连接多波段光线追踪、垂直光热剖面与0—24点叶温变化。",
+        "en": "Sunlight reaches the canopy and filters through gaps to the understory. This STREAMSTUDIO case brings tall trees, layered crowns and low shrubs into one 3D rainforest, connecting multiband ray tracing, vertical light and temperature profiles, and leaf temperatures over 0–24 hours."
+      },
+      "steps": [
+        {
+          "label": {
+            "zh": "分层雨林",
+            "en": "A layered rainforest"
+          },
+          "text": {
+            "zh": "100×100×60米计算域中布置833个实例、七类植被，包括突出层乔木、冠层乔木、亚冠层乔木、灌木、蕨类、棕榈和藤本。60米是计算域高度，不是所有树木的高度；VoxelEB采用5米体元，展示与光线追踪保留完整几何。",
+            "en": "The 100 × 100 × 60 m domain contains 833 instances across seven vegetation types: emergent, canopy and subcanopy trees, shrubs, ferns, palms and lianas. The 60 m dimension is the domain height, not the height of every tree. VoxelEB uses 5 m voxels; visualization and ray tracing retain the full geometry."
+          }
+        },
+        {
+          "label": {
+            "zh": "多波段反射",
+            "en": "Multiband reflectance"
+          },
+          "text": {
+            "zh": "七类植被分别设置略有差异的叶片反射率和透过率，计算560、665、842、1650 nm的方向反射率。每个波段使用独立颜色条；近红外平均反射率为0.3903，红光为0.0260。图像差异同时来自叶片光谱、冠层结构、阴影和地面。",
+            "en": "Seven vegetation types have slightly different leaf reflectance and transmittance. Directional reflectance is simulated at 560, 665, 842 and 1650 nm, each with an independent color scale. Mean near-infrared and red reflectance are 0.3903 and 0.0260. Spectra, canopy structure, shadows and the ground jointly shape the images."
+          }
+        },
+        {
+          "label": {
+            "zh": "垂直光热差异",
+            "en": "Vertical light and temperature gradients"
+          },
+          "text": {
+            "zh": "午间12:15，中心60×60米区域按有叶片体元等权统计：林下0—5米平均叶温28.736°C，上层35—55米为30.964°C，相差约2.23°C；吸收短波分别为0.325和44.143 W/m²叶面积。这里的光照指叶片吸收短波，不等同于PAR、照度或林冠透光率。",
+            "en": "At 12:15, equally weighted occupied leaf voxels in the central 60 × 60 m area average 28.736 °C at 0–5 m and 30.964 °C at 35–55 m, a difference of about 2.23 °C. Absorbed shortwave radiation is 0.325 and 44.143 W/m² of leaf area, respectively. This quantity is not PAR, illuminance or canopy transmittance."
+          }
+        },
+        {
+          "label": {
+            "zh": "0—24点叶温",
+            "en": "Leaf temperature over 0–24 hours"
+          },
+          "text": {
+            "zh": "先计算一天预热，再展示目标日25个逐小时节点。合成气温23.5—30.5°C、相对湿度75—90%，白天短波峰值800 W/m²，夜间为0。各类平均叶温在5点附近最低，15—17点达到最高。24点为次日0点实际结果；本试验未开启流体。",
+            "en": "One simulated day of warm-up precedes 25 hourly outputs from 0 to 24 h. Synthetic forcing spans 23.5–30.5 °C and 75–90% relative humidity, with shortwave radiation peaking at 800 W/m² and zero at night. Mean leaf temperatures reach minima near 05:00 and maxima at 15:00–17:00. The 24 h point is the computed result at midnight the next day. Fluid dynamics is disabled."
+          }
+        },
+        {
+          "label": {
+            "zh": "结果范围",
+            "en": "Scope of the results"
+          },
+          "text": {
+            "zh": "理想化场景与合成气象，尚未进行独立观测验证。午间与全天试验使用不同驱动，应分别解读。全天49个计算节点（含预热）通过2 W/m²能量残差检查，尚未检验日周期稳态。5米体元存在类型混合，棕榈仅9个关联体元；各类采用相同C3生理设定，曲线差异反映结构、受光与光谱的共同作用，不能单独归因于树种生理。",
+            "en": "This idealized scene and synthetic forcing have not been independently validated against observations. Noon and diurnal experiments use different forcing and should be interpreted separately. All 49 time nodes, including warm-up, passed the 2 W/m² energy-residual check; periodic steady state has not been assessed. The 5 m voxels mix types, with only nine voxels associated with palms. All types share the same C3 physiology, so temperature differences cannot be attributed solely to species physiology."
+          }
+        }
+      ],
+      "image": "rainforest/01_streamstudio_scene.png",
+      "caption": {
+        "zh": "图1 STREAMSTUDIO实际界面与三维雨林；七种自然色调区分植被类型，显示颜色与物理光谱分别设置。",
+        "en": "Figure 1. STREAMSTUDIO and the 3D rainforest. Display colors distinguish vegetation types and are configured separately from physical spectra."
+      },
+      "secondary_image": "rainforest/02_multiband_raytracing.png",
+      "secondary_caption": {
+        "zh": "图2 四波段方向反射率，各波段使用独立颜色条；跨波段比较请读取数值。",
+        "en": "Figure 2. Directional reflectance in four bands with independent color scales; compare numerical values across bands."
+      },
+      "additional_images": [
+        {
+          "image": "rainforest/03_vertical_temperature_light.png",
+          "caption": {
+            "zh": "图3 12:15叶温与吸收短波的垂直切片、层均值及P10—P90范围。空白格无叶片体元；范围表示空间差异，不是置信区间。",
+            "en": "Figure 3. Vertical sections, layer means and P10–P90 ranges at 12:15. Blank cells contain no leaf voxels; ranges describe spatial variation, not confidence intervals."
+          }
+        },
+        {
+          "image": "rainforest/04_vegetation_temperature_diurnal.png",
+          "caption": {
+            "zh": "图4 七类植被0—24点叶温；逐小时结果以直线连接，灰色虚线为驱动气温，浅灰底为设定夜间。未开启流体。",
+            "en": "Figure 4. Leaf temperatures over 0–24 h for seven vegetation types. Lines connect hourly outputs; the gray dashed line is forcing air temperature and shading denotes prescribed nighttime. Fluid dynamics is disabled."
+          }
+        }
+      ],
+      "references": [
+        {
+          "citation": "Fan, T., Bian, Z., et al. (2025). STREAM: a system for tracing radiative transfer and energy balance in heterogeneous surfaces. International Journal of Applied Earth Observation and Geoinformation, 142, 104763.",
+          "doi": "10.1016/j.jag.2025.104763"
+        },
+        {
+          "citation": "Zhong, S., Bian, Z., et al. (2026). A global system for monitoring radiative transfer and directional temperatures over heterogeneous surfaces. Remote Sensing of Environment, 346, 115635.",
+          "doi": "10.1016/j.rse.2026.115635"
+        }
+      ],
+      "reference_note": {
+        "zh": "文献介绍STREAM模型体系；论文中的验证不等同于本雨林案例已经完成独立观测验证。叶片光学参数、统计表、程序及源码获取入口见Word案例库。",
+        "en": "These papers describe the STREAM model family; their validation does not independently validate this rainforest case. The Word case library includes leaf optical parameters, statistical tables, and software and source-code links."
       },
       "document": "assets/documents/streamstudio-case-library.docx"
     }

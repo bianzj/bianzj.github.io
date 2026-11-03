@@ -6,7 +6,9 @@
 
 独立页面 `stream.html` 展示 STREAM Studio 软件案例。案例001为“STREAM案例 | 作物光热转换的物理桥梁”，展示玉米场景1—4、中央九株的温度/PAR/H/LE、光热垂直剖面及Vcmax响应，包含五张实际模拟图、JAG与RSE论文链接及案例库Word下载。该案例为数值模拟，尚非逐日连续全生长季计算，也未进行独立观测验证。主页导航、简介按钮和科研软件板块均提供跳转入口；两页共享中英文选择。页面配置位于 `stream_cases.json`，由 `build_cases.py` 生成，运行 `python3 build.py` 会同时更新两个页面。
 
-案例图片位于 `assets/research/maize/`，文档位于 `assets/documents/streamstudio-case-library.docx`。后续案例按002、003续编；在 `stream_cases.json` 中维护编号、双语说明、图片、论文及文档链接。
+案例图片位于 `assets/research/maize/`，文档位于 `assets/documents/streamstudio-case-library.docx`。后续案例按003、004续编；在 `stream_cases.json` 中维护编号、双语说明、图片、论文及文档链接。
+
+案例002为“STREAM案例 | 穿透树冠，从上到下读懂雨林的光与热”，展示七类植被的三维雨林、四波段方向反射率、垂直光热剖面与0—24点叶温。图片位于 `assets/research/rainforest/`，直达链接：https://bianzj.github.io/stream.html#rainforest-light-heat 。Word案例库已包含001和002。案例002为理想化场景与合成气象，尚无独立观测验证，全天叶温试验未开启流体。
 
 ## 更新内容
 
