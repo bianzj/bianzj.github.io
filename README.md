@@ -6,9 +6,13 @@
 
 独立页面 `stream.html` 展示 STREAM Studio 软件案例。案例001为“STREAM案例 | 作物光热转换的物理桥梁”，展示玉米场景1—4、中央九株的温度/PAR/H/LE、光热垂直剖面及Vcmax响应，包含五张实际模拟图、JAG与RSE论文链接及案例库Word下载。该案例为数值模拟，尚非逐日连续全生长季计算，也未进行独立观测验证。主页导航、简介按钮和科研软件板块均提供跳转入口；两页共享中英文选择。页面配置位于 `stream_cases.json`，由 `build_cases.py` 生成，运行 `python3 build.py` 会同时更新两个页面。
 
-案例图片位于 `assets/research/maize/`，文档位于 `assets/documents/streamstudio-case-library.docx`。后续案例按003、004续编；在 `stream_cases.json` 中维护编号、双语说明、图片、论文及文档链接。
+案例图片位于 `assets/research/maize/`，文档位于 `assets/documents/streamstudio-case-library.docx`。当前收录001—004；在 `stream_cases.json` 中维护编号、双语说明、图片、论文及文档链接。
 
 案例002为“STREAM案例 | 穿透树冠，从上到下读懂雨林的光与热”，展示七类植被的三维雨林、四波段方向反射率、垂直光热剖面与0—24点叶温。图片位于 `assets/research/rainforest/`，直达链接：https://bianzj.github.io/stream.html#rainforest-light-heat 。Word案例库已包含001和002。案例002为理想化场景与合成气象，尚无独立观测验证，全天叶温试验未开启流体。
+
+案例003为城市街区浅色屋面与增加绿化，采用2026-11-05 v2修订的五张图及当前PDF，入口为 `stream.html#urban-cooling`。案例004为延庆山地光热与风场，包含真实地形、中心2×2km的原生流体空气温度和风场、坡向热响应，以及最后的站点足迹图，入口为 `stream.html#yanqing-terrain-wind`。两例均保留结果适用范围，未完成独立观测验证。工程与输入链接指向StreamStudio仓库，网站自身只托管图文展示和报告，不托管完整历史计算输出。
+
+顶部提供四例图文入口、GitHub程序与工程、百度网盘及提取码；Word总册已更新，城市案例请以单独的v2 PDF为准。
 
 ## 更新内容
 

@@ -4,8 +4,8 @@
     "en": "STREAM Studio case studies"
   },
   "intro": {
-    "zh": "从玉米田到热带雨林，将三维植被结构、辐射传输与能量平衡联系起来，探索光照和温度随空间、时间及参数的变化。",
-    "en": "From maize fields to tropical rainforests, connect 3D vegetation structure, radiative transfer and energy balance to explore how light and temperature vary across space, time and model parameters."
+    "zh": "从玉米田、热带雨林到城市街区与延庆山地，用实际软件场景和模拟图件，展示三维结构如何影响光照、地表温度与局地风场。",
+    "en": "From maize fields and tropical rainforests to urban blocks and the Yanqing mountains, explore how 3D structure shapes light, surface temperature and local wind fields through software scenes and simulation figures."
   },
   "cases": [
     {
@@ -122,7 +122,16 @@
         "zh": "命名说明：JAG原论文题名使用STREAM，后续RSE论文称该三维场景模型为Hi-Stream。论文中的验证不等同于本次玉米案例已经完成独立观测验证。",
         "en": "Naming: the JAG paper uses STREAM in its title; the later RSE paper refers to that 3D scene model as Hi-Stream. Validation reported in these papers does not constitute independent observational validation of this maize case."
       },
-      "document": "assets/documents/streamstudio-case-library.docx"
+      "document": "assets/documents/streamstudio-case-library.docx",
+      "links": [
+        {
+          "url": "https://github.com/bianzj/streamstudio/tree/main/docs/cases/001-maize",
+          "label": {
+            "zh": "图件与工程输入",
+            "en": "Figures and project inputs"
+          }
+        }
+      ]
     },
     {
       "id": "rainforest-light-heat",
@@ -231,7 +240,240 @@
         "zh": "文献介绍STREAM模型体系；论文中的验证不等同于本雨林案例已经完成独立观测验证。叶片光学参数、统计表、程序及源码获取入口见Word案例库。",
         "en": "These papers describe the STREAM model family; their validation does not independently validate this rainforest case. The Word case library includes leaf optical parameters, statistical tables, and software and source-code links."
       },
-      "document": "assets/documents/streamstudio-case-library.docx"
+      "document": "assets/documents/streamstudio-case-library.docx",
+      "links": [
+        {
+          "url": "https://github.com/bianzj/streamstudio/tree/main/docs/cases/002-rainforest",
+          "label": {
+            "zh": "图件与工程输入",
+            "en": "Figures and project inputs"
+          }
+        }
+      ]
+    },
+    {
+      "id": "urban-cooling",
+      "number": "003",
+      "title": {
+        "zh": "STREAM案例 | 给街区降温：浅色屋面与增加绿化",
+        "en": "STREAM case | Cooling an urban block: lighter roofs and more trees"
+      },
+      "tag": {
+        "zh": "城市街区 · 三方案 · 表面温度与近地风场",
+        "en": "Urban block · Three scenarios · Surface temperature and local wind"
+      },
+      "summary": {
+        "zh": "屋面浅一点，还是多种树？在同一个300米街区中，对比基准、浅色屋面和增加绿化三种方案，分别观察屋顶、墙面、室外地面和冠层的温度变化，以及近地空气温度与风场。",
+        "en": "Lighter roofs or more trees? Compare baseline, lighter-roof and added-greening scenarios in the same 300 m urban block, examining roofs, walls, outdoor ground and tree canopies alongside near-ground air temperature and wind."
+      },
+      "steps": [
+        {
+          "label": {
+            "zh": "三种方案",
+            "en": "Three scenarios"
+          },
+          "text": {
+            "zh": "浅色屋面仅将短波反射率从0.20改为0.35，热红外发射率保持0.92；绿化方案增加树木，保留基准街区几何。",
+            "en": "The lighter-roof scenario changes shortwave reflectance from 0.20 to 0.35 while keeping thermal emissivity at 0.92. The greening scenario adds trees to the baseline block."
+          }
+        },
+        {
+          "label": {
+            "zh": "同位置、同时刻比较",
+            "en": "Matched comparisons"
+          },
+          "text": {
+            "zh": "室外地面排除建筑投影，保留固定的13,324个地面体元。主要效果统计采用各方案共同通过残差检查的白天7个、夜间10个时刻。",
+            "en": "Outdoor-ground comparisons exclude building footprints and use 13,324 fixed ground voxels. Main effect statistics use seven daytime and ten nighttime hours that passed residual checks in all scenarios."
+          }
+        },
+        {
+          "label": {
+            "zh": "近地空气与风",
+            "en": "Near-ground air and wind"
+          },
+          "text": {
+            "zh": "图5来自原生流体输出，不是ERA5输入曲线。空气温度由表面温度松弛耦合得到，绝对值偏高，不作为主要降温指标。",
+            "en": "Figure 5 shows native fluid outputs rather than ERA5 forcing curves. Air temperature uses relaxation coupling to surface temperature; its absolute values are too high and are excluded from the main cooling indicators."
+          }
+        },
+        {
+          "label": {
+            "zh": "结果范围",
+            "en": "Scope"
+          },
+          "text": {
+            "zh": "本页采用2026-11-05 v2修订图表。ERA5本地0—7时来自同一UTC日的晚间拼接；绿化方案8、11、12、13时残差未通过，日变化仍保留这些结果。未完成独立观测验证。",
+            "en": "This page uses the revised v2 figures dated 2026-11-05. Local ERA5 hours 0–7 are spliced from the evening of the same UTC day. Greening hours 8, 11, 12 and 13 failed residual checks and remain visible in the diurnal series. No independent observational validation has been completed."
+          }
+        }
+      ],
+      "image": "urban/01.png",
+      "caption": {
+        "zh": "图1 同一街区的三种方案与结构设置。",
+        "en": "Figure 1. Three scenarios in the same urban geometry."
+      },
+      "additional_images": [
+        {
+          "image": "urban/02.png",
+          "caption": {
+            "zh": "图2 午后热红外亮温与室外地面温度；亮温和物理温度分别解读。",
+            "en": "Figure 2. Afternoon thermal brightness temperature and outdoor ground temperature; these are distinct quantities."
+          }
+        },
+        {
+          "image": "urban/03.png",
+          "caption": {
+            "zh": "图3 全天温度与吸收短波变化，保留逐时结果。",
+            "en": "Figure 3. Diurnal temperature and absorbed shortwave radiation, retaining hourly outputs."
+          }
+        },
+        {
+          "image": "urban/04.png",
+          "caption": {
+            "zh": "图4 共同通过时刻的方案效果对比；地面采用固定室外位置。",
+            "en": "Figure 4. Scenario effects at jointly passing hours, using fixed outdoor ground locations."
+          }
+        },
+        {
+          "image": "urban/05.png",
+          "caption": {
+            "zh": "图5 15:00、距地2.5米的流体空气温度、水平风矢量与风速。",
+            "en": "Figure 5. Fluid air temperature, horizontal wind vectors and speed at 15:00 and 2.5 m above ground."
+          }
+        }
+      ],
+      "document": "assets/documents/streamstudio-case-003-current.pdf",
+      "document_label": {
+        "zh": "下载当前案例 PDF",
+        "en": "Download current case (PDF)"
+      },
+      "links": [
+        {
+          "url": "https://github.com/bianzj/streamstudio/tree/main/docs/cases/003-urban",
+          "label": {
+            "zh": "图件、数据与工程",
+            "en": "Figures, data and projects"
+          }
+        }
+      ]
+    },
+    {
+      "id": "yanqing-terrain-wind",
+      "number": "004",
+      "title": {
+        "zh": "STREAM案例 | 延庆山地光热与风场",
+        "en": "STREAM case | Light, heat and wind over Yanqing terrain"
+      },
+      "tag": {
+        "zh": "真实地形 · 中心2×2km · 站点来源区",
+        "en": "Real terrain · Central 2 × 2 km · Station source areas"
+      },
+      "summary": {
+        "zh": "把延庆站点周边的山脊、沟谷与植被搬进StreamStudio：先看三维场景，再读空气温度、风场和坡向热响应，最后用通量足迹说明站点观测的空间代表性。",
+        "en": "Bring the ridges, valleys and vegetation around the Yanqing station into StreamStudio. Explore the 3D scene, air temperature, wind and terrain-dependent thermal responses, then use flux footprints to illustrate the spatial representativeness of station measurements."
+      },
+      "steps": [
+        {
+          "label": {
+            "zh": "真实地形与场景",
+            "en": "Terrain and scene"
+          },
+          "text": {
+            "zh": "区域中心116.2123°E、40.4168°N，沿用FABDEM 30米输入，海拔约461—883米。三维场景采用真实DEM与已有RGB底图，展示图钉不代表实际塔高。",
+            "en": "The scene is centered at 116.2123°E, 40.4168°N, using archived 30 m FABDEM input with elevations of approximately 461–883 m. The display combines DEM and existing RGB imagery; the pin does not represent measured tower height."
+          }
+        },
+        {
+          "label": {
+            "zh": "空气温度与风场",
+            "en": "Air temperature and wind"
+          },
+          "text": {
+            "zh": "图3来自风速上限30m/s的原生流体求解，50米流体网格，离阶梯地面25米。完整计算域保持4.02×4.02千米，只展示中心2×2千米结果；不是输入气象数据。",
+            "en": "Figure 3 uses native fluid outputs with a 30 m/s speed limit and a 50 m grid, sampled 25 m above the stepped ground. The full domain remains 4.02 × 4.02 km; only the central 2 × 2 km is shown. These are solver outputs rather than meteorological forcing."
+          }
+        },
+        {
+          "label": {
+            "zh": "坡向与高程热响应",
+            "en": "Thermal response by terrain"
+          },
+          "text": {
+            "zh": "图4读取2019-08-25的既有地表能量平衡结果，以NASA POWER驱动，展示地面温度而非空气温度。不同地形组同时受到遮蔽、植被和参数设置的影响。",
+            "en": "Figure 4 reads archived ground-energy-balance outputs for 2019-08-25 driven by NASA POWER. It shows ground temperature rather than air temperature, with shading, vegetation and parameter choices also affecting the terrain groups."
+          }
+        },
+        {
+          "label": {
+            "zh": "站点空间代表性",
+            "en": "Station representativeness"
+          },
+          "text": {
+            "zh": "图5为2019-08-17的FFP情景，不与其他图作同时刻定量对照。来源区随风向和稳定度变化；CO₂与H₂O共用输送核，实际通量取决于不同源汇。用来说明站点代表区域，不评价选址优劣。",
+            "en": "Figure 5 is an FFP scenario for 2019-08-17, not a simultaneous quantitative comparison with the other figures. Source areas change with wind direction and stability. CO₂ and H₂O share a transport kernel, while actual fluxes depend on their respective sources and sinks. This illustrates representativeness rather than judging station siting."
+          }
+        },
+        {
+          "label": {
+            "zh": "结果范围",
+            "en": "Scope"
+          },
+          "text": {
+            "zh": "中心裁切不构成收敛证明，风场参数敏感性尚未解决。不同图沿用各自归档日期与结果，属于功能演示，未完成独立观测验证。",
+            "en": "Cropping does not establish convergence, and wind-field parameter sensitivity remains unresolved. Figures retain their respective archived dates and results as a functional demonstration without independent observational validation."
+          }
+        }
+      ],
+      "image": "yanqing/01.png",
+      "caption": {
+        "zh": "图1 StreamStudio中显示的真实山地场景；RGB为展示层，不是温度求解几何。",
+        "en": "Figure 1. Real terrain displayed in StreamStudio; the RGB layer is for visualization rather than thermal-solver geometry."
+      },
+      "additional_images": [
+        {
+          "image": "yanqing/02.png",
+          "caption": {
+            "zh": "图2 高程、坡度与空间LAI，计算区域约4.02×4.02千米。",
+            "en": "Figure 2. Elevation, slope and spatial LAI over approximately 4.02 × 4.02 km."
+          }
+        },
+        {
+          "image": "yanqing/03.png",
+          "caption": {
+            "zh": "图3 原生流体空气温度与水平风场，各小图独立坐标轴；只展示站点周边中心2×2千米。",
+            "en": "Figure 3. Native fluid air temperature and horizontal wind, with separate axes for each panel, cropped to the central 2 × 2 km."
+          }
+        },
+        {
+          "image": "yanqing/04.png",
+          "caption": {
+            "zh": "图4 坡向与高程带的地表温度对比；空间分组差异不等于单独的坡向因果效应。",
+            "en": "Figure 4. Ground temperature grouped by aspect and elevation; grouped differences do not isolate causal effects of aspect."
+          }
+        },
+        {
+          "image": "yanqing/05.png",
+          "caption": {
+            "zh": "图5 站点CO₂与H₂O潜在来源区情景，黄、橙、紫线为50%、80%、90%累积权重。",
+            "en": "Figure 5. Illustrative station source areas for CO₂ and H₂O; yellow, orange and purple contours show 50%, 80% and 90% cumulative weights."
+          }
+        }
+      ],
+      "document": "assets/documents/streamstudio-case-004-yanqing.docx",
+      "document_label": {
+        "zh": "下载延庆案例 Word",
+        "en": "Download Yanqing case (Word)"
+      },
+      "links": [
+        {
+          "url": "https://github.com/bianzj/streamstudio/tree/main/docs/cases/004-yanqing",
+          "label": {
+            "zh": "图件、数据与工程",
+            "en": "Figures, data and projects"
+          }
+        }
+      ]
     }
   ]
 }

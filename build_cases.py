@@ -10,7 +10,7 @@ def build_cases(profile, bi, text, heading, research_image):
     cards, sections = [], []
     for i, case in enumerate(content['cases'], 1):
         number = case.get('number', f'{i:03}')
-        cards.append(f'''<a class="case-card" href="#{case['id']}"><span class="case-number">{escape(number)}</span><h2>{bi(case['title'])}</h2><p>{bi(case['tag'])}</p><span class="case-arrow" aria-hidden="true">↗</span></a>''')
+        cards.append(f'''<a class="case-card" href="#{case['id']}"><img class="case-card-image" src="assets/research/{escape(case['image'], quote=True)}" alt="" loading="lazy"><span class="case-number">{escape(number)}</span><h2>{bi(case['title'])}</h2><p>{bi(case['tag'])}</p><span class="case-arrow" aria-hidden="true">↗</span></a>''')
         steps = ''.join(f'<div><dt>{bi(step["label"])}</dt><dd>{bi(step["text"])}</dd></div>' for step in case['steps'])
         figure = f'''<figure class="case-figure">{research_image(case['image'],case['caption']['zh'],case['caption']['en'])}<figcaption>{bi(case['caption'])}</figcaption></figure>'''
         if case.get('secondary_image'):
@@ -24,7 +24,11 @@ def build_cases(profile, bi, text, heading, research_image):
             related += f'<p class="case-reference">{bi(case["reference_note"])}</p>'
         download = ''
         if case.get('document'):
-            download = f'<p class="case-download"><a class="button" href="{escape(case["document"], quote=True)}" download>{text("下载案例库 Word","Download case library (Word)")} ↓</a></p>'
+            label = case.get('document_label', {'zh':'下载案例库 Word','en':'Download case library (Word)'})
+            download = f'<div class="case-download"><a class="button" href="{escape(case["document"], quote=True)}" download>{bi(label)} ↓</a>'
+            for link in case.get('links', []):
+                download += f'<a class="button" href="{escape(link["url"], quote=True)}">{bi(link["label"])}</a>'
+            download += '</div>'
         sections.append(f'''<section class="section case-section" id="{case['id']}">{heading(number,case['title']['zh'],case['title']['en'])}<p class="case-summary">{bi(case['summary'])}</p>{download}<div class="case-layout"><div class="case-copy"><dl>{steps}</dl>{related}</div><div class="case-images">{figure}</div></div></section>''')
     case_content = (f'<nav class="case-index" id="cases" aria-label="Case studies">{"".join(cards)}</nav>' + ''.join(sections)) if cards else f'<section class="case-placeholder" id="cases"><p>{text("案例内容待补充。","Case studies will be added here.")}</p></section>'
     page = f''' <!doctype html>
@@ -35,7 +39,7 @@ def build_cases(profile, bi, text, heading, research_image):
 <body class="cases-page" data-title-zh="STREAM Studio 软件案例 | 卞尊健" data-title-en="STREAM Studio case studies | Zunjian Bian">
 <a class="skip" href="#main">{text('跳到正文','Skip to content')}</a>
 <header class="header"><div class="wrap nav"><a class="brand" href="stream.html">STREAM Studio<span>CASES</span></a><nav class="nav-links" aria-label="Main navigation"><a href="index.html">{text('个人主页','Profile')}</a><a class="desktop-link" href="https://github.com/bianzj/streamstudio">GitHub ↗</a><button type="button" class="language" id="language-toggle" aria-label="Switch to English">EN</button></nav></div></header>
-<main id="main" class="wrap"><section class="case-hero"><span class="eyebrow">SOFTWARE CASE STUDIES</span><h1>{bi(content['title'])}</h1><p>{bi(content['intro'])}</p></section>
+<main id="main" class="wrap"><section class="case-hero"><span class="eyebrow">SOFTWARE CASE STUDIES</span><h1>{bi(content['title'])}</h1><p>{bi(content['intro'])}</p><div class="case-download"><a class="button" href="https://github.com/bianzj/streamstudio/releases/tag/v2.0.1">{text('下载 StreamStudio','Download StreamStudio')}</a><a class="button" href="https://github.com/bianzj/streamstudio/tree/main/docs/cases">{text('GitHub 案例与工程','Cases and projects on GitHub')}</a><a class="button" href="https://pan.baidu.com/s/1iYGVT5aC67xQ9T5A00A_YA?pwd=uvx2">{text('百度网盘 · 提取码 uvx2','Baidu Netdisk · Code uvx2')}</a></div></section>
 {case_content}
 </main><footer class="footer wrap"><span>© 2026 Zunjian Bian · STREAM Studio</span><span><a href="index.html">{text('返回个人主页','Back to profile')}</a> · <a href="mailto:{profile['email']}">{text('交流与合作','Contact')}</a></span></footer></body></html>'''
     (ROOT / 'stream.html').write_text(page, encoding='utf-8')
