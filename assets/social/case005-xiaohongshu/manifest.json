@@ -1,0 +1,17 @@
+{
+  "format": "1080x1440, 3:4",
+  "cards": 3,
+  "model_rerun": false,
+  "source": "Existing approved Case005 figures",
+  "references": 5,
+  "resource_entry": "Third card footer only",
+  "files": {
+    "01.jpg": "074c76f8fed6fc78c7c2467ae865bd76366c2fdd010d1a30145810dfc58f12a6",
+    "01.png": "51d032c082e3d1728104b214d0a59b5575fe1de73da4a2a8b898042167d4f291",
+    "02.jpg": "cb9c2b014feb88234c6d9536e77f2dfddc44b08ca81caccf3a1092ec6c8972ac",
+    "02.png": "19c627ed0c525537f46d35b243d7b4b07e4f9c109bc7077788c7d459bc7f43d9",
+    "03.jpg": "ec3783a6ab14198194c46291661fa4bb6a6ecb1ea9bbddc811070ac973520351",
+    "03.png": "36d672afc2b278a23021abf71ee697131db23d719c47726993fa23167fc61c9a",
+    "caption.txt": "c68afcb2b57be4c1128242b986632edb277b7c422bbada321d308b0340fbe4b0"
+  }
+}
