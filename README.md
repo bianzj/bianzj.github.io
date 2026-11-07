@@ -16,6 +16,8 @@
 
 ## 更新内容
 
+光伏小红书素材的模型参考文献为 Fan et al. (2025), JAG 142:104763 与 Zhong et al. (2026), RSE 346:115635。`tools/build_case005_xhs_model_references.py` 使用已有数值图层重建图2、图3及文案，检查图层哈希，交付副本写入 `D:/releases/streamstudio/promotion/20261107-xiaohongshu/005-photovoltaic`；随后运行 `build.py` 更新宣传页。
+
 编辑 `profile.json`，然后运行：
 
 ```sh

@@ -2,16 +2,25 @@
   "format": "1080x1440, 3:4",
   "cards": 3,
   "model_rerun": false,
-  "source": "Existing approved Case005 figures",
-  "references": 5,
+  "numerical_plot_assets_unchanged": true,
+  "references": [
+    {
+      "citation": "Fan, T., Bian, Z., et al. (2025). STREAM: a system for tracing radiative transfer and energy balance in heterogeneous surfaces. International Journal of Applied Earth Observation and Geoinformation, 142, 104763.",
+      "doi": "10.1016/j.jag.2025.104763"
+    },
+    {
+      "citation": "Zhong, S., Bian, Z., et al. (2026). A global system for monitoring radiative transfer and directional temperatures over heterogeneous surfaces. Remote Sensing of Environment, 346, 115635.",
+      "doi": "10.1016/j.rse.2026.115635"
+    }
+  ],
   "resource_entry": "Third card footer only",
   "files": {
     "01.jpg": "074c76f8fed6fc78c7c2467ae865bd76366c2fdd010d1a30145810dfc58f12a6",
     "01.png": "51d032c082e3d1728104b214d0a59b5575fe1de73da4a2a8b898042167d4f291",
-    "02.jpg": "cb9c2b014feb88234c6d9536e77f2dfddc44b08ca81caccf3a1092ec6c8972ac",
-    "02.png": "19c627ed0c525537f46d35b243d7b4b07e4f9c109bc7077788c7d459bc7f43d9",
-    "03.jpg": "ec3783a6ab14198194c46291661fa4bb6a6ecb1ea9bbddc811070ac973520351",
-    "03.png": "36d672afc2b278a23021abf71ee697131db23d719c47726993fa23167fc61c9a",
-    "caption.txt": "c68afcb2b57be4c1128242b986632edb277b7c422bbada321d308b0340fbe4b0"
+    "02.jpg": "72319272dc717295981b937db44bc2a8dc8fca6de31308c2b5a34a3a614e69cc",
+    "02.png": "228f6ddbcbafaf7b1b123a0cb1b7f3c1bc362791c3ebccec07e54a6820a3a701",
+    "03.jpg": "4be19b7614a14cdff9a3c028634b66db2ea2c8859b945ee694e5d4dad910b9b0",
+    "03.png": "53d65bec3a100b9de0806df6137775178072fe49372b47fa6757ebe78f11a77c",
+    "caption.txt": "7e70332281f3634334f0c05940d05c4f30487657a459c2d33e619e77d0aa33d0"
   }
 }

@@ -611,29 +611,17 @@
       ],
       "references": [
         {
-          "citation": "Armstrong, A., Ostle, N. J., & Whitaker, J. (2016). Solar park microclimate and vegetation management effects on grassland carbon cycling. Environmental Research Letters, 11(7), 074016.",
-          "doi": "10.1088/1748-9326/11/7/074016"
+          "citation": "Fan, T., Bian, Z., et al. (2025). STREAM: a system for tracing radiative transfer and energy balance in heterogeneous surfaces. International Journal of Applied Earth Observation and Geoinformation, 142, 104763.",
+          "doi": "10.1016/j.jag.2025.104763"
         },
         {
-          "citation": "Barron-Gafford, G. A., et al. (2019). Agrivoltaics provide mutual benefits across the food–energy–water nexus in drylands. Nature Sustainability, 2, 848–855.",
-          "doi": "10.1038/s41893-019-0364-5"
-        },
-        {
-          "citation": "Faiman, D. (2008). Assessing the outdoor operating temperature of photovoltaic modules. Progress in Photovoltaics: Research and Applications, 16(4), 307–315.",
-          "doi": "10.1002/pip.813"
-        },
-        {
-          "citation": "Cao, B., Liu, Q., Du, Y., et al. (2019). A review of earth surface thermal radiation directionality observing and modeling: Historical development, current status and perspectives. Remote Sensing of Environment, 232, 111304.",
-          "doi": "10.1016/j.rse.2019.111304"
-        },
-        {
-          "citation": "Barron-Gafford, G. A., Minor, R. L., Allen, N. A., et al. (2016). The Photovoltaic Heat Island Effect: Larger solar power plants increase local temperatures. Scientific Reports, 6, 35070.",
-          "doi": "10.1038/srep35070"
+          "citation": "Zhong, S., Bian, Z., et al. (2026). A global system for monitoring radiative transfer and directional temperatures over heterogeneous surfaces. Remote Sensing of Environment, 346, 115635.",
+          "doi": "10.1016/j.rse.2026.115635"
         }
       ],
       "reference_note": {
-        "zh": "参考文献用于研究背景与物理解释，不作为本案例独立观测验证。此处提供的是图文推广材料；工程输入是否包含在程序下载包中，以对应发布内容为准。",
-        "en": "References provide research context and physical interpretation, not independent validation of this case. This entry provides promotional figures and text; availability of project inputs depends on the corresponding software release."
+        "zh": "这两篇论文介绍STREAM模型体系，不代表本光伏案例已完成独立实测验证。此处提供图文推广材料；工程输入以相应发布内容为准。",
+        "en": "These papers describe the STREAM model family; they do not independently validate this photovoltaic case. This entry provides promotional figures and text; project inputs depend on the corresponding release."
       },
       "thumbnail": "previews/005.jpg"
     }

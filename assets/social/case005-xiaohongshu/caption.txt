@@ -20,10 +20,9 @@
 这是理想化模型案例，未完成独立实测验证。草叶降温不能直接理解为气温或区域热岛降低；热红外亮温也不等于板的物理温度。
 
 参考文献：
-[1] Armstrong et al. (2016), Environmental Research Letters 11, 074016. DOI:10.1088/1748-9326/11/7/074016
-[2] Barron-Gafford et al. (2019), Nature Sustainability 2, 848–855. DOI:10.1038/s41893-019-0364-5
-[3] Faiman (2008), Progress in Photovoltaics 16, 307–315. DOI:10.1002/pip.813
-[4] Cao et al. (2019), Remote Sensing of Environment 232, 111304. DOI:10.1016/j.rse.2019.111304
-[5] Barron-Gafford et al. (2016), Scientific Reports 6, 35070. DOI:10.1038/srep35070
+[1] Fan, T., Bian, Z., et al. (2025). STREAM: a system for tracing radiative transfer and energy balance in heterogeneous surfaces. International Journal of Applied Earth Observation and Geoinformation, 142, 104763. DOI:10.1016/j.jag.2025.104763
+[2] Zhong, S., Bian, Z., et al. (2026). A global system for monitoring radiative transfer and directional temperatures over heterogeneous surfaces. Remote Sensing of Environment, 346, 115635. DOI:10.1016/j.rse.2026.115635
+
+以上文献介绍模型体系，不代表本光伏案例已完成独立实测验证。
 
 #光伏 #草地 #热红外遥感 #遥感 #StreamStudio #科研可视化
