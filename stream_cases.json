@@ -4,8 +4,8 @@
     "en": "STREAM Studio case studies"
   },
   "intro": {
-    "zh": "从玉米田、热带雨林到城市街区与延庆山地，用实际软件场景和模拟图件，展示三维结构如何影响光照、地表温度与局地风场。",
-    "en": "From maize fields and tropical rainforests to urban blocks and the Yanqing mountains, explore how 3D structure shapes light, surface temperature and local wind fields through software scenes and simulation figures."
+    "zh": "从玉米田、热带雨林到城市街区、延庆山地与光伏草场，五个案例展示三维结构如何影响光照、表面温度与热红外观测。下方每行一个案例，点击查看场景、图件与结果说明。",
+    "en": "Five cases—from maize and tropical rainforest to urban blocks, Yanqing terrain and photovoltaic grasslands—show how 3D structure affects light, surface temperature and thermal-infrared observations. Select a row below for scenes, figures and interpretation."
   },
   "cases": [
     {
@@ -131,7 +131,16 @@
             "en": "Figures and project inputs"
           }
         }
-      ]
+      ],
+      "index_title": {
+        "zh": "玉米光热转换",
+        "en": "Maize light and heat"
+      },
+      "index_tag": {
+        "zh": "四种株型 · 叶片面元 · 光热与生理响应",
+        "en": "Four growth stages; leaf facets; physiological response"
+      },
+      "thumbnail": "previews/001.jpg"
     },
     {
       "id": "rainforest-light-heat",
@@ -249,7 +258,16 @@
             "en": "Figures and project inputs"
           }
         }
-      ]
+      ],
+      "index_title": {
+        "zh": "雨林分层光热",
+        "en": "Rainforest light and heat"
+      },
+      "index_tag": {
+        "zh": "七类植被 · 多波段 · 分层与全天叶温",
+        "en": "Seven vegetation types; spectral and diurnal patterns"
+      },
+      "thumbnail": "previews/002.jpg"
     },
     {
       "id": "urban-cooling",
@@ -356,7 +374,16 @@
             "en": "Figures, data and projects"
           }
         }
-      ]
+      ],
+      "index_title": {
+        "zh": "城市街区热环境",
+        "en": "Urban thermal environment"
+      },
+      "index_tag": {
+        "zh": "浅色屋面与绿化 · 三方案对照",
+        "en": "Lighter roofs and greening; three matched scenarios"
+      },
+      "thumbnail": "previews/003.jpg"
     },
     {
       "id": "yanqing-terrain-wind",
@@ -473,7 +500,142 @@
             "en": "Figures, data and projects"
           }
         }
-      ]
+      ],
+      "index_title": {
+        "zh": "延庆山地光热与风场",
+        "en": "Yanqing terrain, heat and wind"
+      },
+      "index_tag": {
+        "zh": "真实地形 · 坡向高程 · 站点来源区",
+        "en": "Real terrain; aspect and elevation; station source areas"
+      },
+      "thumbnail": "previews/004.jpg"
+    },
+    {
+      "id": "photovoltaic-grassland",
+      "number": "005",
+      "title": {
+        "zh": "STREAM案例 | 光伏阵列与草场的温度变化",
+        "en": "STREAM case | Temperature changes in photovoltaic grasslands"
+      },
+      "index_title": {
+        "zh": "光伏草场热环境",
+        "en": "Photovoltaic grassland"
+      },
+      "index_tag": {
+        "zh": "草场对照 · 板温日变化 · 热辐射方向性",
+        "en": "Grassland comparison; panel temperature; thermal directionality"
+      },
+      "tag": {
+        "zh": "光伏与草场 · 配对场景 · 多角度热红外",
+        "en": "Photovoltaics and grassland; paired scenarios; multi-angle thermal infrared"
+      },
+      "summary": {
+        "zh": "在相同气象、草地和初始化下，比较有、无光伏阵列的草场，分别观察板面与草叶的物理温度，以及不同方向的热红外亮温。三张推广图介绍软件场景、草场温度对照和热辐射方向性，基于已有原生模拟结果。",
+        "en": "Compare grasslands with and without photovoltaic arrays under identical forcing, vegetation and initial conditions. Examine physical panel and leaf temperatures separately from directional thermal-infrared brightness temperatures. Three figures introduce the software scene, paired grassland temperatures and thermal directionality, using existing native simulation outputs."
+      },
+      "image": "photovoltaic/01.png",
+      "caption": {
+        "zh": "图1 StreamStudio软件图标及完整界面中的光伏阵列与草场。场景预览展示几何与光照，不代替计算温度。",
+        "en": "Figure 1. StreamStudio icon and full interface showing photovoltaic arrays and grassland. The scene preview displays geometry and lighting, not computed temperatures."
+      },
+      "secondary_image": "photovoltaic/02.png",
+      "secondary_caption": {
+        "zh": "图2 午间草叶空间对照与全天温度曲线。空间图独立采用0.25 m草叶网格，日变化曲线沿用1 m网格；两组结果分别标明。",
+        "en": "Figure 2. Midday leaf-temperature comparison and diurnal curves. The spatial diagnostic uses an independently refined 0.25 m grass mesh; diurnal curves retain the 1 m mesh, with the two sets identified separately."
+      },
+      "additional_images": [
+        {
+          "image": "photovoltaic/03.png",
+          "caption": {
+            "zh": "图3 同一温度场的热辐射方向性、三个观测方向的原生影像及参考文献。代码与程序入口仅在该图下方保留一处。",
+            "en": "Figure 3. Thermal directionality for the same temperature field, native images from three viewing directions and references. The code and software entry appears only below this figure."
+          }
+        }
+      ],
+      "document": "assets/documents/streamstudio-case-005-photovoltaic.pdf",
+      "document_label": {
+        "zh": "下载3页案例PDF",
+        "en": "Download the 3-page case PDF"
+      },
+      "links": [
+        {
+          "url": "https://github.com/bianzj/streamstudio/tree/main/docs/cases/005-photovoltaic",
+          "label": {
+            "zh": "GitHub图文与推广材料",
+            "en": "Figures and promotional materials on GitHub"
+          }
+        }
+      ],
+      "steps": [
+        {
+          "label": {
+            "zh": "配对场景",
+            "en": "Paired scenes"
+          },
+          "text": {
+            "zh": "18×18 m草场，草叶高0.25 m、LAI为1；增加4行南向30°光伏板，总组件面积96 m²。两组共用理想化晴夏日气象、土壤与初始化，前24个节点用于预热。",
+            "en": "An 18 × 18 m grassland with 0.25 m leaf height and LAI 1, with or without four south-facing panel rows tilted at 30°, totaling 96 m² of modules. Both scenes share idealized clear-summer forcing, soil and initial conditions; the first 24 nodes are warm-up."
+          }
+        },
+        {
+          "label": {
+            "zh": "温度变化",
+            "en": "Temperature response"
+          },
+          "text": {
+            "zh": "基础1 m草叶网格在12时给出板平均物理温度46.21°C；无光伏草叶均温37.60°C，有光伏35.23°C，配对变化−2.37 K。0.25 m午间空间补算的变化为−2.32 K，不与原网格统计混用。",
+            "en": "At noon, the base 1 m grass mesh yields mean physical panel temperature of 46.21 °C; mean grass-leaf temperature changes from 37.60 °C without panels to 35.23 °C with panels (−2.37 K). The independent 0.25 m midday spatial diagnostic gives −2.32 K and is kept separate from base-mesh statistics."
+          }
+        },
+        {
+          "label": {
+            "zh": "方向热红外",
+            "en": "Directional thermal infrared"
+          },
+          "text": {
+            "zh": "09、12、15时各渲染61个方向，天顶角覆盖0—75°，波长10.5 μm。12时有光伏场景的方向亮温极差约5.65 K；每幅图先平均有效像元辐亮度再反演亮温。",
+            "en": "At 09:00, 12:00 and 15:00, 61 directions cover viewing zenith angles of 0–75° at 10.5 μm. At noon, the PV scene spans about 5.65 K in directional brightness temperature; valid pixel radiances are averaged before Planck inversion."
+          }
+        },
+        {
+          "label": {
+            "zh": "核验与适用范围",
+            "en": "Verification and scope"
+          },
+          "text": {
+            "zh": "基础98个节点与空间细化74个节点均通过引擎原生收敛判据。收敛不等于独立实测验证；气温由共同气象指定，没有模拟气温响应、区域热岛、草地生长或产草量。亮温也不等于板的物理温度。",
+            "en": "All 98 base nodes and 74 spatial-refinement nodes pass the native convergence criteria. Convergence is not independent field validation. Air temperature is prescribed by common forcing, with no simulated air-temperature response, regional heat island, grass growth or yield. Brightness temperature is not physical panel temperature."
+          }
+        }
+      ],
+      "references": [
+        {
+          "citation": "Armstrong, A., Ostle, N. J., & Whitaker, J. (2016). Solar park microclimate and vegetation management effects on grassland carbon cycling. Environmental Research Letters, 11(7), 074016.",
+          "doi": "10.1088/1748-9326/11/7/074016"
+        },
+        {
+          "citation": "Barron-Gafford, G. A., et al. (2019). Agrivoltaics provide mutual benefits across the food–energy–water nexus in drylands. Nature Sustainability, 2, 848–855.",
+          "doi": "10.1038/s41893-019-0364-5"
+        },
+        {
+          "citation": "Faiman, D. (2008). Assessing the outdoor operating temperature of photovoltaic modules. Progress in Photovoltaics: Research and Applications, 16(4), 307–315.",
+          "doi": "10.1002/pip.813"
+        },
+        {
+          "citation": "Cao, B., Liu, Q., Du, Y., et al. (2019). A review of earth surface thermal radiation directionality observing and modeling: Historical development, current status and perspectives. Remote Sensing of Environment, 232, 111304.",
+          "doi": "10.1016/j.rse.2019.111304"
+        },
+        {
+          "citation": "Barron-Gafford, G. A., Minor, R. L., Allen, N. A., et al. (2016). The Photovoltaic Heat Island Effect: Larger solar power plants increase local temperatures. Scientific Reports, 6, 35070.",
+          "doi": "10.1038/srep35070"
+        }
+      ],
+      "reference_note": {
+        "zh": "参考文献用于研究背景与物理解释，不作为本案例独立观测验证。此处提供的是图文推广材料；工程输入是否包含在程序下载包中，以对应发布内容为准。",
+        "en": "References provide research context and physical interpretation, not independent validation of this case. This entry provides promotional figures and text; availability of project inputs depends on the corresponding software release."
+      },
+      "thumbnail": "previews/005.jpg"
     }
   ]
 }

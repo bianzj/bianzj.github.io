@@ -6,11 +6,14 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent
 
 def build_cases(profile, bi, text, heading, research_image):
-    content = json.loads((ROOT / 'stream_cases.json').read_text())
+    content = json.loads((ROOT / 'stream_cases.json').read_text(encoding='utf-8'))
     cards, sections = [], []
     for i, case in enumerate(content['cases'], 1):
         number = case.get('number', f'{i:03}')
-        cards.append(f'''<a class="case-card" href="#{case['id']}"><img class="case-card-image" src="assets/research/{escape(case['image'], quote=True)}" alt="" loading="lazy"><span class="case-number">{escape(number)}</span><h2>{bi(case['title'])}</h2><p>{bi(case['tag'])}</p><span class="case-arrow" aria-hidden="true">↗</span></a>''')
+        preview = case.get('thumbnail', case['image'])
+        index_title = case.get('index_title', case['title'])
+        index_tag = case.get('index_tag', case['tag'])
+        cards.append(f'''<a class="case-card" href="#{case['id']}"><img class="case-card-image" src="assets/research/{escape(preview, quote=True)}" alt="" width="320" height="200" loading="lazy"><span class="case-number">{escape(number)}</span><div class="case-card-copy"><h2>{bi(index_title)}</h2><p>{bi(index_tag)}</p></div><span class="case-open">{text('查看案例','View case')} <span aria-hidden="true">↓</span></span></a>''')
         steps = ''.join(f'<div><dt>{bi(step["label"])}</dt><dd>{bi(step["text"])}</dd></div>' for step in case['steps'])
         figure = f'''<figure class="case-figure">{research_image(case['image'],case['caption']['zh'],case['caption']['en'])}<figcaption>{bi(case['caption'])}</figcaption></figure>'''
         if case.get('secondary_image'):
@@ -30,12 +33,12 @@ def build_cases(profile, bi, text, heading, research_image):
                 download += f'<a class="button" href="{escape(link["url"], quote=True)}">{bi(link["label"])}</a>'
             download += '</div>'
         sections.append(f'''<section class="section case-section" id="{case['id']}">{heading(number,case['title']['zh'],case['title']['en'])}<p class="case-summary">{bi(case['summary'])}</p>{download}<div class="case-layout"><div class="case-copy"><dl>{steps}</dl>{related}</div><div class="case-images">{figure}</div></div></section>''')
-    case_content = (f'<nav class="case-index" id="cases" aria-label="Case studies">{"".join(cards)}</nav>' + ''.join(sections)) if cards else f'<section class="case-placeholder" id="cases"><p>{text("案例内容待补充。","Case studies will be added here.")}</p></section>'
+    case_content = (f'<div class="case-index-head"><h2>{text("案例目录","Case directory")}</h2><span>{text(f"已收录 {len(cards)} 个案例",f"{len(cards)} published cases")}</span></div><nav class="case-index" id="cases" aria-label="Case studies">{"".join(cards)}</nav>' + ''.join(sections)) if cards else f'<section class="case-placeholder" id="cases"><p>{text("案例内容待补充。","Case studies will be added here.")}</p></section>'
     page = f''' <!doctype html>
 <html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 <title>STREAM Studio 软件案例 | 卞尊健</title><meta name="description" content="STREAM Studio 软件使用案例与操作示例。">
 <meta name="theme-color" content="#285e4e"><link rel="canonical" href="https://bianzj.github.io/stream.html">
-<link rel="icon" type="image/svg+xml" href="assets/favicon.svg"><link rel="stylesheet" href="assets/site.css"><link rel="stylesheet" href="assets/cases.css"><script defer src="assets/site.js"></script></head>
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg"><link rel="stylesheet" href="assets/site.css"><link rel="stylesheet" href="assets/cases.css?v=20261107-5cases"><script defer src="assets/site.js"></script></head>
 <body class="cases-page" data-title-zh="STREAM Studio 软件案例 | 卞尊健" data-title-en="STREAM Studio case studies | Zunjian Bian">
 <a class="skip" href="#main">{text('跳到正文','Skip to content')}</a>
 <header class="header"><div class="wrap nav"><a class="brand" href="stream.html">STREAM Studio<span>CASES</span></a><nav class="nav-links" aria-label="Main navigation"><a href="index.html">{text('个人主页','Profile')}</a><a class="desktop-link" href="https://github.com/bianzj/streamstudio">GitHub ↗</a><button type="button" class="language" id="language-toggle" aria-label="Switch to English">EN</button></nav></div></header>

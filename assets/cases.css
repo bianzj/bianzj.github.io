@@ -11,3 +11,36 @@
 .case-card-image{display:block;width:100%;height:180px;object-fit:contain;background:white;margin-bottom:18px}
 .case-download{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
 @media(max-width:640px){.case-index{grid-template-columns:1fr}.case-card-image{height:160px}.case-download .button{max-width:100%;white-space:normal}}
+
+/* Compact directory: one case per row, with a small dedicated preview. */
+.cases-page .case-hero{max-width:none;padding:42px 0 25px}
+.cases-page .case-hero h1{font-size:clamp(32px,4vw,46px);margin-bottom:16px}
+.cases-page .case-hero>p{max-width:960px;font-size:15px;line-height:1.85;margin-bottom:22px}
+.cases-page .case-hero .case-download{margin-bottom:12px}
+.case-index-head{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:14px 0}
+.case-index-head h2{font:400 21px/1.4 var(--serif);margin:0}
+.case-index-head>span{font-size:12px;color:var(--muted)}
+.cases-page .case-index{display:flex;flex-direction:column;gap:0;border-top:1px solid var(--line);padding-bottom:38px}
+.cases-page .case-card{display:grid;grid-template-columns:112px 38px minmax(0,1fr) 86px;align-items:center;gap:20px;padding:16px 0;border:0;border-bottom:1px solid var(--line);background:transparent}
+.cases-page .case-card:hover{background:var(--light)}
+.cases-page .case-card:focus-visible{outline:2px solid var(--green);outline-offset:4px}
+.cases-page .case-card-image{width:112px;height:74px;object-fit:contain;background:white;margin:0;border:1px solid #edf0ec;border-radius:3px}
+.cases-page .case-number{font-size:13px;align-self:center}
+.case-card-copy{min-width:0}
+.cases-page .case-card h2{font:400 20px/1.5 var(--serif);margin:0;padding:0}
+.cases-page .case-card p{font-size:12px;line-height:1.6;margin:5px 0 0;color:var(--muted)}
+.case-open{font-size:12px;color:var(--green);justify-self:end;white-space:nowrap;padding-right:4px}
+@media(max-width:640px){
+  .cases-page .case-hero{padding:30px 0 20px}
+  .cases-page .case-hero h1{font-size:32px}
+  .cases-page .case-hero>p{font-size:13px}
+  .case-index-head h2{font-size:19px}
+  .case-index-head>span{font-size:11px}
+  .cases-page .case-card{grid-template-columns:76px 26px minmax(0,1fr);gap:11px;padding:14px 0}
+  .cases-page .case-card-image{width:76px;height:57px}
+  .cases-page .case-number{font-size:11px}
+  .cases-page .case-card h2{font-size:16px;line-height:1.4}
+  .cases-page .case-card p{font-size:10px;line-height:1.55;overflow-wrap:anywhere}
+  .case-open{display:none}
+}
+@media print{.case-index-head{display:none}}
